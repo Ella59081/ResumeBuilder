@@ -144,7 +144,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .see-temp{
-    padding: 50px 250px;
+    padding: 50px 250px 70px;
     display: flex;
     flex-direction: column;
     gap:50px;
@@ -157,7 +157,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: -0px;
     /* align-items: center; */
 }
 .temp-grid img{
@@ -192,7 +191,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
+}
+.steps a{
+    padding: 18px 50px;
+    background-color: rgb(72, 105, 226);
+    color: white;
+    width: fit-content;
+    border: none;
+    line-height: 19px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: none;
 }
 .cards{
     display: grid;
@@ -212,9 +226,16 @@
 }
 .card h1{
     color: brown;
+    font-size: 40px;
 }
 .card .blue{
     color: blue;
+}
+.card .yellow{
+    color: rgb(153, 153, 3);
+}
+.card .green{
+    color: green;
 }
 .card p{
     font-size: 17px;

@@ -77,16 +77,33 @@ function Home(){
                             <h2>Fill in your details</h2>
                             <p>Fill in all necessary details for your resume, Add
                                 your details and ways for employers to reach you
-                                
-
+                                Add your personal details, contact info, skills and eductaional 
+                                background. Itemize bullet points in one click.
                             </p>
                         </div>
-                        <div className="card"></div>
-                        <div className="card"></div>
+                        <div className="card">
+                            <h1 className='yellow'>03</h1>
+                            <h2>Review your resume</h2>
+                            <p>After entering all the necessary details do a quick 
+                                review of what you've written so far. You can then 
+                                change the template or edit what you've written.
+                                Customize your resume however you like. its never been easier.
+                            </p>
+                        </div>
+                        <div className="card">
+                            <h1 className='green'>04</h1>
+                            <h2>Dowload your resume</h2>
+                            <p>After entering all the necessary details and reviewing 
+                                your work, you can now download your resume either in 
+                                pdf format or word format. Finish your resume within
+                                minuites and download as you wish.
+                            </p>
+                        </div>
                     </div>
                     <Link to="templates">Build resume now</Link>
                 </div>
             </div>
+            div
         </div>
         
         </>
