@@ -1,0 +1,258 @@
+.con-temp{
+    width: 100%;
+    display: flex;
+    
+    position: relative;
+    background-color: #212d59;
+}
+.main-temp{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 100px 60px;
+    background-color: whitesmoke;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    background-color: #212d59;
+    padding: 30px;
+    align-items: center;
+    gap: 30px;
+    height: 100vh;
+}
+.sect{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: white;
+    border: 3px solid white;
+}
+.detForm{
+    width: 63%;
+}
+.first-part{
+    width: 100%;
+    /* padding-bottom: 20px; */
+}
+.first-part .header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+.first-part .header h1{
+    font-size: 30px;
+    padding: 0px;
+    padding-right: 50px;
+}
+.header p{
+    padding: 0px;
+    font-size: 18px;
+}
+.add-photo{
+    display: flex;
+    gap: 30px;
+    padding-top: 30px;
+}
+.inimg{
+    padding: 60px;
+    background-image: url('/src/assets/images/user-solid\ \(2\).svg');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    border-radius: 100px;
+    background-color: rgb(160, 160, 160);
+}
+.add-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.add-text .photo-add{
+    padding: 10px 30px;
+    border-radius: 30px;
+    width: fit-content;
+    border: 1px solid black;
+}
+.add-text p{
+    font-size: 18px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+.flex{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.name label{
+    font-size: 12px;
+}
+.name input{
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+}
+.name input:focus{
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.photo{
+    width: 30%;
+}
+.temp-des{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    border-radius: 15px;
+}
+.temp-des p{
+    font-size: 9px;
+}
+.side-in{
+    width: 50px;
+    background-color: #212d59;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.main-in{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
+.header-in{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.summary{
+    display: flex;
+    gap: 20px;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 60%;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.contact{
+    background-color: rgb(138, 212, 255);
+    padding: 8px;
+}
+.contact p{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.contact p img{
+    height: 8px;
+}
+.skills p{
+    margin-top: 2px;
+}
+.education p{
+    margin-top: 2px;
+}
+.work p{
+    margin-top: 3px;
+}
+.title2 p{
+    margin-top: 3px;
+}
+select{
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    
+}
+.select:focus{
+    font-size: 15px;
+    border: 0px;
+    outline: 0px;
+    
+}
+option{
+    background-color: white;
+}
+.roles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.roles .name{
+    gap: 20px;
+}
+.buttons-continue{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 50px;
+}
+.continue{
+    padding: 10px 50px;
+    border-radius: 30px;
+    width: fit-content;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: inherit;
+}
+.addex{
+    padding: 10px 50px;
+    border-radius: 30px;
+    width: fit-content;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: inherit;
+    font-size: 16px;
+    height: fit-content;
+}
+.add-skills{
+    padding: 10px 50px;
+    border-radius: 30px;
+    width: fit-content;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: inherit;
+    font-size: 16px;
+    height: fit-content;
+    margin-top: 30px;
+}
+textarea{
+    padding: 10px 13px;
+    height: 270px;
+    border: 10px;
+}
+

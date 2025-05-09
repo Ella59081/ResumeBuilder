@@ -1,0 +1,221 @@
+.con{
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.about{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 50px 250px 0px;
+    font-family: sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.info h1{
+    font-size: 54px;
+    line-height: 64px;
+    font-weight: 900;
+}
+.info p{
+    font-size: 20px;
+    line-height: 30px;
+    width: 80%;
+    padding-top: 30px;
+}
+.info a{
+    margin-top: 70px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.info button{
+    
+    padding: 18px 50px;
+    background-color: rgb(72, 105, 226);
+    color: white;
+    width: fit-content;
+    border: none;
+    line-height: 19px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pic{
+    width: 40%;
+    position: relative;
+}
+.pic .resume{
+    position: absolute;
+    top: 40px;
+    height: 400px;
+    left: 120px;
+    z-index: 1;
+}
+.pic .profile{
+    position: absolute;
+    z-index: 2;
+    height: 200px;
+    top: 270px;
+    left: 320px;
+}
+.pic .shadow{
+    height: 400px;
+    width: 100%;
+    border-radius: 100%;
+    /* box-shadow: 10px 10px 10px 10px rgba(128, 128, 128, 0.175); */
+    background-color: rgba(128, 128, 128, 0.175);
+    filter: blur(10px);
+    /* background-image: linear-gradient(to right, rgba(131, 131, 216, 0.208), rgba(146, 146, 239, 0.17)); */
+
+}
+.create{
+    padding: 80px 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+}
+.title h1{
+    font-size: 40px;
+    font-weight: 900;
+}
+.info button{
+    
+    padding: 18px 50px;
+    background-color: rgb(72, 105, 226);
+    color: white;
+    width: fit-content;
+    border: none;
+    line-height: 19px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 60px;
+    gap: 30px;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.items img{
+    height: 80px;
+    width: 100px;
+}
+.items p{
+    font-size: 19px;
+    font-weight: 500;
+}
+.create a{
+    padding: 18px 50px;
+    background-color: rgb(72, 105, 226);
+    color: white;
+    width: fit-content;
+    border: none;
+    line-height: 19px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.see-temp{
+    padding: 50px 250px;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+.temp-grid{
+    display: flex;
+    gap: 30px;
+}
+.temp-grid div{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: -0px;
+    /* align-items: center; */
+}
+.temp-grid img{
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.temp-grid img:hover{
+    scale: 1.1;
+    transition: 1.7s ease;
+}
+.use{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgb(72, 105, 226);
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+.how-to{
+    padding: 50px 250px;
+    background-color: whitesmoke;
+}
+.how-to > p{
+    font-size: 20px;
+    padding-top: 10px;
+}
+.steps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+    padding-top: 30px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.112);
+    padding: 20px;
+}
+.card h1{
+    color: brown;
+}
+.card .blue{
+    color: blue;
+}
+.card p{
+    font-size: 17px;
+}

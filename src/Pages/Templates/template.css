@@ -1,0 +1,60 @@
+.con{
+    width: 100%;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 100px;
+    background-color: whitesmoke;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.header h1{
+    font-size: 40px;
+    font-weight: 900;
+}
+.header a{
+    color: black;
+    font-size: 18px;
+}
+.template-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    row-gap: 60px;
+}
+.template{
+    background-color: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    text-decoration: none;
+    
+}
+.template img{
+    height: 550px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.template-grid img:hover{
+    scale: 1.1;
+    transition: 1.7s ease;
+}
+.use{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgb(72, 105, 226);
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
