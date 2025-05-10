@@ -181,7 +181,7 @@
 }
 .how-to{
     padding: 50px 250px;
-    background-color: whitesmoke;
+    background-color: #fafbfc;
 }
 .how-to > p{
     font-size: 20px;
@@ -239,4 +239,93 @@
 }
 .card p{
     font-size: 17px;
+}
+.start-now{
+    padding: 100px 250px;
+}
+.inner-div{
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(72, 105, 226);
+    color: white;
+    border-radius: 10px;
+}
+.inner-div div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+.inner-div h1{
+    font-size: 40px;
+}
+.inner-div p{
+    font-size: 20px;
+}
+.inner-div a{
+    padding: 18px 50px;
+    color: rgb(43, 43, 43);
+    background-color: white;
+    width: fit-content;
+    border: none;
+    line-height: 19px;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+.footer{
+    padding: 100px 250px;
+    background-color: #fafbfc;
+}
+.foot1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #aaaa;
+}
+.socails{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+/* .socails span{
+    background-color: white;
+    padding: 0;
+} */
+.socails span svg{
+    height: 20px;
+    fill: grey;
+    background-color: white;
+    padding: 0px;
+}
+.face{
+    border-radius: 100%;
+}
+.face:hover{
+    fill: blue;
+}
+.socails .l-in, .twitter{
+    border-radius: 5px;
+}
+.twitter:hover{
+    fill: black;
+}
+.y-tube{
+    border-radius: 5px;
+}
+.tiktok{
+    border-radius: 5px;
+}
+.tiktok:hover{
+    fill: black;
+}
+.foot2{
+    padding-top: 50px;
 }
