@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const FormContext = createContext();
 
@@ -10,6 +10,22 @@ export function FormProvider({children}){
         skills: {},
         summary: {}
     })
+
+    // const [formData, setFormData] = useState(() =>{
+    //     const savedData = localStorage.getItem('formData');
+    //     return savedData ? JSON.parse(savedData) :
+    //     {
+    //         personalDetails: {},
+    //         experience: {},
+    //         education: {},
+    //         skills: {},
+    //         summary: {}
+    //     }
+    // })
+
+    useEffect(() =>{
+        localStorage.setItem("formData", JSON.stringify(formData))
+    },[formData])
 
     const updateForm = (formName, data) =>{
         setFormData(prev =>({

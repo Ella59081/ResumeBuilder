@@ -1,8 +1,11 @@
 import './template1.css'
 import { Link } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+// import { detailsSchema } from '../../../../validations/formDataSchema'
 
 function PersonalDetails(){
 
@@ -15,7 +18,22 @@ function PersonalDetails(){
     //     email: "",
     //     address: "",
     // });
-    
+
+    // Initialize  schema validation
+    // const {
+    //     register,
+    //     control,
+    //     handleSubmit,
+    //     formState: { errors },
+    //     watch,
+    // } = useForm();
+
+    // const watchedValues = watch();
+
+    // useEffect(() =>{
+    //     updateForm('personalDetails', watchedValues);
+    // },[watchedValues])
+
     const navigate = useNavigate();
 
     const handleChange = (e) =>{
@@ -25,9 +43,7 @@ function PersonalDetails(){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        // updateForm('personalDetails', data);
-        let personalInfo = []
-        personalInfo.push(localStorage.setItem("personalDetails", JSON.stringify(PersonalDetails)))
+        navigate('/resumeData/experience')
     }
 
 
@@ -43,8 +59,8 @@ function PersonalDetails(){
                             <div className="add-text">
                                 <p>Add a photo to your resume</p>
                                 <label htmlFor="photo" className='photo-add'>
-                                    <input type="file" name="photo" id="photo" hidden/>
-                                    <span>Add photo</span>
+                                    <input type="file" name="photo" disabled id="photo" hidden/>
+                                    <span style={{color: "grey"}}>Add photo</span>
                                 </label>
                             </div>
                         </div>
@@ -54,13 +70,25 @@ function PersonalDetails(){
                                     <label htmlFor="firstName">
                                         FIRST NAME
                                     </label>
-                                    <input type="text" name="f_name" onChange={handleChange}/>
+                                    <input type="text" name="f_name"
+                                     onChange={handleChange}
+                                    //  {...register('f_name',
+                                    //     {required: "This field is required"}
+                                    //  )}
+                                     />
+                                    {/* {errors.f_name && <p className='errorMsg'>{errors.f_name?.message}!</p> } */}
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
                                         LAST NAME
                                     </label>
-                                    <input type="text" name="l_name" onChange={handleChange}/>
+                                    <input type="text" name="l_name"
+                                     onChange={handleChange}
+                                    //  {...register('l_name',
+                                    //     {required: "This field is required"}
+                                    //  )}
+                                    />
+                                    {/* {errors.l_name ? <p className='errorMsg'>{errors.l_name?.message}!</p> : ""} */}
                                 </div>
                             </div>
                             <div className="flex">
@@ -68,13 +96,17 @@ function PersonalDetails(){
                                     <label htmlFor="email">
                                         EMAIL
                                     </label>
-                                    <input type="email" name="email" id="" onChange={handleChange}/>
+                                    <input type="email" name="email" id="" 
+                                    onChange={handleChange}
+                                    />
                                 </div>
                                 <div className="name">
                                     <label htmlFor="phone">
                                         PHONE
                                     </label>
-                                    <input type="number" name="phone" id="" onChange={handleChange}/>
+                                    <input type="number" name="phone" id="" 
+                                    onChange={handleChange}
+                                    />
                                 </div>
                             </div>
                             <div className="flex">
@@ -82,11 +114,13 @@ function PersonalDetails(){
                                     <label htmlFor="country">
                                         ADDRESS
                                     </label>
-                                    <input type="text" name="address" onChange={handleChange}/>
+                                    <input type="text" name="address"
+                                     onChange={handleChange}
+                                     />
                                 </div>
                                 
                             </div>
-                            <Link onClick={handleSubmit} style={{marginTop: "50px"}} to='/resumeData/experience' className='continue'>Continue</Link>
+                            <button style={{marginTop: "50px"}} type="submit" className='continue'>Continue</button>
                             {/* <button onClick={handleSubmit} type="submit">submit</button> */}
                             
                         </div>

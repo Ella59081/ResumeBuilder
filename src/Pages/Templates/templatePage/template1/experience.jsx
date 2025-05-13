@@ -2,6 +2,11 @@ import './template1.css'
 import { Link } from 'react-router-dom'
 
 function Experience(){
+
+    const [isAddded, setIsAdded] = useState(false);
+    const addExperience =() =>{
+        setIsAdded(true)
+    }
     return (
         <>
             <form className="first-part longer">
@@ -58,10 +63,11 @@ function Experience(){
                                     </div>
                                 </div>
                             </div>
-                            
+
+                                                       
                             <div className='buttons-continue'>
                                 <Link to='/resumeData/education' className='continue' type='submit'>Continue</Link>
-                                <button className="addex">Add experience</button>  
+                                <button onClick={addExperience} className="addex"><span>+ </span>Add experience</button>  
                             </div>
                         </div>
             </form>
