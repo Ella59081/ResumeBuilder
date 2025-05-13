@@ -10,7 +10,6 @@ function Header(){
             <a href="">Contact us</a>
             <a href="">Login</a>
             </div>
-            
         </nav>
         </>
     )

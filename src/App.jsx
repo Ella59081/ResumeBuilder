@@ -4,7 +4,7 @@ import Header from './components/Header/header'
 import Home from './Pages/Home/Home'
 import Templates from './Pages/Templates/templates'
 import { Routes, Route } from 'react-router-dom'
-import { TemplateContext } from './Hooks/provideTemplate'
+import { TemplateContext } from './contexts/provideTemplate'
 import Template1 from './Pages/Templates/templatePage/template1/template1'
 import PersonalDetails from './Pages/Templates/templatePage/template1/personalDetails'
 import Experience from './Pages/Templates/templatePage/template1/experience'
@@ -12,12 +12,16 @@ import Education from './Pages/Templates/templatePage/template1/education'
 import Skills from './Pages/Templates/templatePage/template1/skills'
 import Summary from './Pages/Templates/templatePage/template1/summary'
 import Review from './Pages/review/review'
+import { FormProvider } from './contexts/FormContext'
+// import { FormContext } from './contexts/FormContext'
 
 function App() {
   
   return (
     <>
+
     <TemplateContext>
+      <FormProvider>
       <Header/>
       {/* <Home/>
       <Templates/> */}
@@ -33,7 +37,7 @@ function App() {
         </Route>
         <Route path='/review' element={<Review/>}/>
       </Routes>
-      
+      </FormProvider>
       </TemplateContext>
     </>
   )

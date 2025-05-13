@@ -1,8 +1,12 @@
 import './template1.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { FormContext } from '../../../../contexts/FormContext'
+
 
 function Template1() {
+
+    const {formData} = useContext(FormContext);
 
     // const ContinueButton = (padding, text, backgroundColor, borderRaduis, width) =>{
     // }
@@ -37,7 +41,10 @@ function Template1() {
                             <div className="side-in"></div>
                             <div className="main-in">
                                 <div className="header-in">
-                                    <h6>JEREMY FISHER</h6>
+                                    <h6>
+                                        <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'JEREMY' + "  "}</span>
+                                        <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'FISHER'}</span>
+                                    </h6>
                                     <p>KNOWLEDGEABLE SOCIAL MEDIA</p>
                                 </div>
                                 <div className="summary">
@@ -82,15 +89,15 @@ function Template1() {
                                             <h6>CONTACT</h6>
                                             <p className='top'>
                                                 <img src="/src/assets/images/phone-solid.svg" alt="" />
-                                                080 567 543 12
+                                                {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                             </p>
                                             <p>
                                                 <img src="/src/assets/images/envelope-solid.svg" alt="" /> 
-                                                example@gmail.com
+                                                {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                             </p>
                                             <p>
                                                 <img src="/src/assets/images/location-dot-solid.svg" alt="" />
-                                                maddison, off close
+                                                {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                             </p>
                                         </div>
                                         <div className="skills">
