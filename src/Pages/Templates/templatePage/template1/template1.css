@@ -113,6 +113,7 @@
     border: none;
     font-size: 15px;
     background-color: whitesmoke;
+    border: 1px solid black;
 }
 .name input:focus{
     border: none;
@@ -265,5 +266,6 @@ textarea{
     height: 270px;
     border-radius: 10px;
     background-color: whitesmoke;
+    border: 1px solid black;
 }
 

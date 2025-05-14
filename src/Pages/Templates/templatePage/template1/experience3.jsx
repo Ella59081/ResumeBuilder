@@ -1,7 +1,7 @@
 import './template1.css'
 import { Link } from 'react-router-dom'
 
-function Experience(){
+function Experience3(){
 
     const [isAddded, setIsAdded] = useState(false);
     const addExperience =() =>{
@@ -11,10 +11,8 @@ function Experience(){
         <>
             <form className="first-part longer">
                         <div className="header">
-                          <h1>Enter your Experience</h1>
-                          <p>Start with your most resent job then work backwards</p>
-                          <p>Add maximum of three work experiences</p>
-                          di
+                          <h1>Add another Experience</h1>
+                          <p>Add description and roles of your previous jobs</p>
                         </div>
                         <div className="form">
                             <div className="flex">
@@ -68,8 +66,7 @@ function Experience(){
 
                                                        
                             <div className='buttons-continue'>
-                                <Link to='/resumeData/education' className='continue' type='submit'>Continue</Link>
-                                <Link to='/resumeData/experience2' onClick={addExperience} className="addex"><span>+ </span>Add experience</Link>  
+                                <Link to='/resumeData/education' className='continue' type='submit'>Continue</Link>  
                             </div>
                         </div>
             </form>
@@ -77,4 +74,4 @@ function Experience(){
     )
 }
 
-export default Experience
+export default Experience3
