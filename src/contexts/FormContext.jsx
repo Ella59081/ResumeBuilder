@@ -6,6 +6,8 @@ export function FormProvider({children}){
     const [formData, setFormData] = useState({
         personalDetails: {},
         experience: {},
+        experience2: {},
+        experience3: {},
         education: {},
         skills: {},
         summary: {}

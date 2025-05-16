@@ -1,7 +1,27 @@
 import './template1.css'
 import { Link } from 'react-router-dom'
+import { useState, useContext } from 'react';
+import { FormContext } from '../../../../contexts/FormContext'
+import { useNavigate } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+// import { detailsSchema } from '../../../../validations/formDataSchema'
 
 function Experience2(){
+
+        const {updateForm, formData} = useContext(FormContext);
+    
+    
+        const navigate = useNavigate();
+    
+        const handleChange = (e) =>{
+            const {name, value} = e.target;
+            updateForm('experience2', {[name] : value});
+        }
+    
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+            navigate('/resumeData/education')
+        }
 
     const [isAddded, setIsAdded] = useState(false);
     const addExperience =() =>{
@@ -20,13 +40,13 @@ function Experience2(){
                                     <label htmlFor="firstName">
                                         JOB TITLE
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='job2' />
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
                                         EMPLOYER
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='employer'/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -34,13 +54,13 @@ function Experience2(){
                                     <label htmlFor="city">
                                         CITY
                                     </label>
-                                    <input type="text" />
+                                    <input type="text"  name='city'/>
                                 </div>
                                 <div className="name">
                                     <label htmlFor="country">
-                                        COUNTRY
+                                        COMPANY
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='company'/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -48,18 +68,22 @@ function Experience2(){
                                     <label htmlFor="start">
                                         START DATE
                                     </label>
-                                    <input type="date" name="" id="" />
+                                    <input type="date" name="start_date" id="" />
                                 </div>
-                                
+                                <div className="name">
+                                    <label htmlFor="end">
+                                        END DATE
+                                    </label>
+                                    <input type="date" name="end_date" id="" />
+                                </div>
                             </div>
                             <div class="roles">
                                 <h2>Roles</h2>
                                 <div className="flex">
                                     <div className="name">
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
+                                        <input type="text" name="role1" id="" />
+                                        <input type="text" name="role2" id="" />
+                                        <input type="text" name="role3" id="" />
                                     </div>
                                 </div>
                             </div>

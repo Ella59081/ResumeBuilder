@@ -45,7 +45,7 @@ function Template1() {
                                         <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'JEREMY' + "  "}</span>
                                         <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'FISHER'}</span>
                                     </h6>
-                                    <p>KNOWLEDGEABLE SOCIAL MEDIA</p>
+                                    <p>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : 'KNOWLEDGEABLE SOCIAL MEDIA MANAGER'}</p>
                                 </div>
                                 <div className="summary">
                                     <div className="left">
@@ -60,7 +60,24 @@ function Template1() {
                                         </div>
                                         <div className="work">
                                             <h6>WORK HISTORY</h6>
-                                            <h6>Social Media Manager</h6>
+                                            <h6 className='top'>{formData.experience.title1 ? formData.experience.title1 : 'Social Media Manager'}</h6>
+                                            <p>
+                                                <span>{formData.experience.company ? formData.experience.company + ' ' : 'infasec' + ' '}</span>
+                                                <span>
+                                                    {formData.experience.start_date ? formData.experience.title1 
+                                                    + ' ' + 'since' + ' ' + formData.experience.start_date.slice(0, 4) :
+                                                    'social media manager since march 2021'}
+                                                </span>
+                                            </p>
+                                            <p className="top">
+                                              {formData.experience.role1 ? '.' + ' ' + formData.experience.role1 : '. Develop marketing content'}
+                                            </p>
+                                            <p>{formData.experience.role2 ? '.' + ' ' + formData.experience.role2 : '. Analyze reported social media'}</p>
+                                            <p>{formData.experience.role3 ? '.' + ' ' + formData.experience.role3 : '. Curate and segment content to increase engagement'}</p>
+                                        </div>
+                                        <div className="title2">
+                                            <h6>Digital Marketing Coordinator</h6>
+                                            
                                             <p>
                                                 infasec social media manager since march 2021
                                             </p>
@@ -71,7 +88,7 @@ function Template1() {
                                             <p>. Curate and segment content to increase engagement</p>
                                         </div>
                                         <div className="title2">
-                                            <h6>Digital Marketing Coordinator</h6>
+                                            
                                             <h6>Social Media Manager</h6>
                                             <p>
                                                 infasec social media manager since march 2021

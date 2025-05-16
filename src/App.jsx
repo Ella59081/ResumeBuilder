@@ -14,6 +14,7 @@ import Summary from './Pages/Templates/templatePage/template1/summary'
 import Review from './Pages/review/review'
 import { FormProvider } from './contexts/FormContext'
 import Experience2 from './Pages/Templates/templatePage/template1/experience2'
+import Experience3 from './Pages/Templates/templatePage/template1/experience3'
 // import { FormContext } from './contexts/FormContext'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path='/resumeData' element={<PersonalDetails/>}/>
           <Route path='/resumeData/experience' element={<Experience/>}/>
           <Route path='/resumeData/experience2' element={<Experience2/>}/>
+          <Route path='/resumeData/experience3' element={<Experience3/>}/>
           <Route path='/resumeData/education' element={<Education/>}/>
           <Route path='/resumeData/skills' element={<Skills/>}/>
           <Route path='/resumeData/summary' element={<Summary/>}/>

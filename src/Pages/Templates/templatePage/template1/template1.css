@@ -116,8 +116,8 @@
     border: 1px solid black;
 }
 .name input:focus{
-    border: none;
-    outline: none;
+    /* border: none;
+    outline: none; */
     font-size: 15px;
 }
 .name .errorMsg{
@@ -137,6 +137,9 @@
     bottom: 20px;
 }
 .temp-des p{
+    font-size: 8.5px;
+}
+.temp-des h6{
     font-size: 10px;
 }
 .side-in{
@@ -164,13 +167,13 @@
 .left{
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 15px;
     width: 60%;
 }
 .right{
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 15px;
 }
 .contact{
     background-color: rgb(138, 212, 255);
@@ -203,6 +206,7 @@ select{
     border: none;
     font-size: 15px;
     background-color: whitesmoke;
+    border: 1px solid black;
 }
 .select:focus{
     font-size: 15px;
@@ -228,15 +232,18 @@ option{
     padding-top: 50px;
 }
 .continue{
-    padding: 10px 50px;
+    padding: 13px 50px;
     border-radius: 30px;
     width: fit-content;
     color: black;
     text-decoration: none;
-    border: 1px solid black;
+    border: none;
     background-color: inherit;
     font-size: 16px;
+    font-weight: bold;
+    color: white;
     cursor: pointer;
+    background-color: rgb(72, 105, 226);
 }
 .addex{
     padding: 10px 50px;

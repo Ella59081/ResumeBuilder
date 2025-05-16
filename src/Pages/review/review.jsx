@@ -21,7 +21,8 @@ function Review(){
                                                 proven record of success in building
                                                 brand awareness, increasing followers
                                                 and patnering with top influencers 
-                                                throughout the country.
+                                                throughout the country. I did a lot of works 
+                                                in terms of managing social media accounts.
                                             </p>
                                         </div>
                                         <div className="revwork">
@@ -40,7 +41,20 @@ function Review(){
                                         <div className="revtitle2">
                                             <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>Digital Marketing Coordinator</h6>
-                                            <h6 className='top'>Social Media Manager</h6>
+                                            
+                                            <span>
+                                                infasec social media manager since march 2021
+                                            </span>
+                                            <p className='top'>
+                                              . Develop marketing content
+                                            </p>
+                                            <p>. Analyze reported social media</p>
+                                            <p>. Curate and segment content to increase engagement</p>
+                                        </div>
+                                        <div className="revtitle2">
+                                            <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
+                                            
+                                            <h6>Social Media Manager</h6>
                                             <span>
                                                 infasec social media manager since march 2021
                                             </span>
@@ -56,7 +70,7 @@ function Review(){
                                         <div className="revcontact">
                                             <Link to='/resumeData' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>CONTACT</h6>
-                                            <p className='top'>
+                                            <p >
                                                 <img src="/src/assets/images/phone-solid.svg" alt="" />
                                                 080 567 543 12
                                             </p>
