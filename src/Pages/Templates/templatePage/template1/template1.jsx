@@ -76,28 +76,52 @@ function Template1() {
                                             <p>{formData.experience.role3 ? '.' + ' ' + formData.experience.role3 : '. Curate and segment content to increase engagement'}</p>
                                         </div>
                                         <div className="title2">
-                                            <h6>Digital Marketing Coordinator</h6>
+                                            <h6>
+                                                {formData.experience2.job2 ? formData.experience2.job2 : 'Digital Marketing Coordinator'}
+                                            </h6>
                                             
                                             <p>
-                                                infasec social media manager since march 2021
+                                                <span>{formData.experience2.company ? formData.experience2.company + ' ' : 'infasec' + ' '}</span>
+                                                <span>
+                                                    {formData.experience2.end_date ? formData.experience2.job2
+                                                    + ' ' + 'from' + ' ' + formData.experience2.start_date.slice(0, 4) + 
+                                                    ' ' + 'to' + ' ' + formData.experience2.end_date.slice(0, 4) :
+                                                    'social media manager since march 2021'}
+                                                </span>
                                             </p>
                                             <p className="top">
-                                              . Develop marketing content
+                                              {formData.experience2.role1 ? '.' + ' ' + formData.experience2.role1 : '. Develop marketing content'}
                                             </p>
-                                            <p>. Analyze reported social media</p>
-                                            <p>. Curate and segment content to increase engagement</p>
+                                            <p>
+                                                {formData.experience2.role2 ? '.' + ' ' + formData.experience2.role2 : '. Analyze reported social media'}
+                                            </p>
+                                            <p>
+                                                {formData.experience2.role3 ? '.' + ' ' + formData.experience2.role3 : '. Curate and segment content to increase engagement'}
+                                            </p>
                                         </div>
                                         <div className="title2">
                                             
-                                            <h6>Social Media Manager</h6>
+                                            <h6>
+                                                {formData.experience3.job3 ? formData.experience3.job3 : 'Social Media Manager'}
+                                            </h6>
                                             <p>
-                                                infasec social media manager since march 2021
+                                                <span>{formData.experience3.company ? formData.experience3.company + ' ' : 'infasec' + ' '}</span>
+                                                <span>
+                                                    {formData.experience3.end_date ? formData.experience3.job3
+                                                    + ' ' + 'from' + ' ' + formData.experience3.start_date.slice(0, 4) + 
+                                                    ' ' + 'to' + ' ' + formData.experience3.end_date.slice(0, 4) :
+                                                    'social media manager since march 2021'}
+                                                </span>
                                             </p>
                                             <p className="top">
-                                              . Develop marketing content
+                                              {formData.experience3.role1 ? '.' + ' ' + formData.experience3.role1 : '. Develop marketing content'}
                                             </p>
-                                            <p>. Analyze reported social media</p>
-                                            <p>. Curate and segment content to increase engagement</p>
+                                            <p>
+                                                {formData.experience3.role2 ? '.' + ' ' + formData.experience3.role2 : '. Analyze reported social media'}
+                                            </p>
+                                            <p>
+                                                {formData.experience3.role3 ? '.' + ' ' + formData.experience3.role3 : '. Curate and segment content to increase engagement'}
+                                            </p>
                                         </div>
                                         
                                     </div>
@@ -120,19 +144,47 @@ function Template1() {
                                         <div className="skills">
                                             <h6>SKILLS</h6>
                                             <p className="top">. Market research</p>
+                                            <p>{
+                                                 formData.skills.skill1 ? '.' + ' ' +  formData.skills.skill1 : '. Market research'
+                                                }</p>
                                             <p>. Budgeting</p>
                                             <p>. Scheduling</p>
                                             <p>. Scheduling</p>
                                         </div>
                                         <div className="education">
                                             <h6>EDUCATION</h6>
-                                            <p className="top">Bachelor of arts</p>
-                                            <p>Communications and marketing</p>
-                                            <p>university of wiscondion</p>
+                                            <p className="top">
+                                                {
+                                                    formData.education.degree ? formData.education.degree : 'Bachelor of arts'
+                                                }
+                                            </p>
+                                            <p>
+                                                {
+                                                    formData.education.field ? formData.education.field : 'Communications and marketing'
+                                                }
+                                            </p>
+                                            <p>
+                                                {
+                                                    formData.education.school ? formData.education.school : 'university of wiscondion'
+                                                }
+                                                <span>{
+                                                    formData.education.location ? ',' + ' ' + formData.education.location : ', New jersey'
+                                                }</span>
+                                            </p>
+                                            <p>
+                                                Graduated : 
+                                                {
+                                                    formData.education.grad_date ? ' ' + formData.education.grad_date : ' 2003'
+                                                }
+                                            </p>
                                         </div>
                                         <div className="certifications">
                                             <h6>CERTIFICATION</h6>
-                                            <p className="top">Google data analytics</p>
+                                            <p className="top">
+                                                {
+                                                    formData.education.certification ? formData.education.certification : 'Data analytics'
+                                                }
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

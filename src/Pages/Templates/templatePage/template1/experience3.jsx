@@ -1,8 +1,28 @@
 import './template1.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { FormContext } from '../../../../contexts/FormContext'
+import { useNavigate } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+// import { detailsSchema } from '../../../../validations/formDataSchema'
+
 
 function Experience3(){
+
+    const {updateForm, formData} = useContext(FormContext);
+        
+        
+    const navigate = useNavigate();
+        
+        const handleChange = (e) =>{
+            const {name, value} = e.target;
+            updateForm('experience3', {[name] : value});
+        }
+        
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+            navigate('/resumeData/education')
+        }
 
     const [isAddded, setIsAdded] = useState(false);
     const addExperience =() =>{
@@ -21,13 +41,15 @@ function Experience3(){
                                     <label htmlFor="firstName">
                                         JOB TITLE
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='job3'
+                                     onChange={handleChange}/>
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
                                         EMPLOYER
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='employer' 
+                                     onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -39,9 +61,10 @@ function Experience3(){
                                 </div>
                                 <div className="name">
                                     <label htmlFor="country">
-                                        COUNTRY
+                                        COMPANY
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='company'
+                                     onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -49,18 +72,28 @@ function Experience3(){
                                     <label htmlFor="start">
                                         START DATE
                                     </label>
-                                    <input type="date" name="" id="" />
+                                    <input type="date" name="start_date" id="" 
+                                     onChange={handleChange}/>
                                 </div>
-                                
+                                <div className="name">
+                                    <label htmlFor="start">
+                                        END DATE
+                                    </label>
+                                    <input type="date" name="end_date" id="" 
+                                     onChange={handleChange}/>
+                                </div>
                             </div>
                             <div class="roles">
                                 <h2>Roles</h2>
                                 <div className="flex">
                                     <div className="name">
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
-                                        <input type="text" name="" id="" />
+                                        <input type="text" name="role1" id="" 
+                                         onChange={handleChange} />
+                                        <input type="text" name="role2" id="" 
+                                         onChange={handleChange} />
+                                        <input type="text" name="role3" id="" 
+                                         onChange={handleChange} />
+                                        
                                     </div>
                                 </div>
                             </div>

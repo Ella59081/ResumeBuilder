@@ -40,27 +40,31 @@ function Experience2(){
                                     <label htmlFor="firstName">
                                         JOB TITLE
                                     </label>
-                                    <input type="text" name='job2' />
+                                    <input type="text" name='job2'
+                                     onChange={handleChange}/>
                                 </div>
-                                <div className="name">
+                                < div className="name">
                                     <label htmlFor="lastName">
                                         EMPLOYER
                                     </label>
-                                    <input type="text" name='employer'/>
-                                </div>
-                            </div>
-                            <div className="flex">
+                                    <input type="text" name='employer'
+                                     onChange={handleChange}/>
+                                </ div>
+                            </ div>
+                            < div className="flex">
                                 <div className="name">
                                     <label htmlFor="city">
                                         CITY
                                     </label>
-                                    <input type="text"  name='city'/>
+                                    <input type="text"  name='city'
+                                     onChange={handleChange}/>
                                 </div>
                                 <div className="name">
                                     <label htmlFor="country">
                                         COMPANY
                                     </label>
-                                    <input type="text" name='company'/>
+                                    <input type="text" name='company'
+                                     onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -68,22 +72,27 @@ function Experience2(){
                                     <label htmlFor="start">
                                         START DATE
                                     </label>
-                                    <input type="date" name="start_date" id="" />
+                                    <input type="date" name="start_date" id="" 
+                                     onChange={handleChange}/>
                                 </div>
                                 <div className="name">
                                     <label htmlFor="end">
                                         END DATE
                                     </label>
-                                    <input type="date" name="end_date" id="" />
+                                    <input type="date" name="end_date" id="" 
+                                     onChange={handleChange}/>
                                 </div>
                             </div>
                             <div class="roles">
                                 <h2>Roles</h2>
                                 <div className="flex">
                                     <div className="name">
-                                        <input type="text" name="role1" id="" />
-                                        <input type="text" name="role2" id="" />
-                                        <input type="text" name="role3" id="" />
+                                        <input type="text" name="role1" id="" 
+                                         onChange={handleChange}/>
+                                        <input type="text" name="role2" id="" 
+                                         onChange={handleChange}/>
+                                        <input type="text" name="role3" id="" 
+                                         onChange={handleChange}/>
                                     </div>
                                 </div>
                             </div>

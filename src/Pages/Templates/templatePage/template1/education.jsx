@@ -1,7 +1,35 @@
 import './template1.css'
 import { Link } from 'react-router-dom'
+import { useState, useContext } from 'react';
+import { FormContext } from '../../../../contexts/FormContext'
+import { useNavigate } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+// import { detailsSchema } from '../../../../validations/formDataSchema'
 
 function Education(){
+
+        const {updateForm, formData} = useContext(FormContext);
+            
+            
+        const navigate = useNavigate();
+            
+        const handleChange = (e) =>{
+            const {name, value} = e.target;
+            updateForm('education', {[name] : value});
+        }
+            
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+            navigate('/resumeData/skills')
+        }
+
+        const [hasField, setHasField] = useState(true)
+
+        const  HighSchool = () =>{
+            setHasField(false);
+            // console.log(hasField)
+        }
+
     return (
         <>
             <form className="first-part">
@@ -15,27 +43,30 @@ function Education(){
                                     <label htmlFor="firstName">
                                         SCHOOL NAME
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='school'
+                                    onChange={handleChange}/>
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
                                         SCHOOL LOCATION
                                     </label>
-                                    <input type="text" />
+                                    <input type="text" name='location'
+                                     onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="flex">
-                                <div className="name">
-                                    <label htmlFor="city">
-                                        DEGREE
-                                    </label>
-                                    <input type="text" />
-                                </div>
+                                
                                 <div className="name">
                                     <label htmlFor="country">
                                         GRADUATION DATE
                                     </label>
-                                    <input type="date" />
+                                    <input type="date" name='grad_date' onChange={handleChange} />
+                                </div>
+                                <div className="name">
+                                    <label htmlFor="country">
+                                        CERTIFICATION
+                                    </label>
+                                    <input type="text" name='certification'  onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -43,9 +74,9 @@ function Education(){
                                     <label htmlFor="start">
                                         DEGREE
                                     </label>
-                                    <select>
+                                    <select name='degree' onChange={handleChange}>
                                         <option>select</option>
-                                        <option>high school diploma</option>
+                                        <option onClick={hasField}>high school diploma</option>
                                         <option>bachelor of science</option>
                                     </select>
                                 </div>
@@ -53,8 +84,21 @@ function Education(){
                                     <label htmlFor="start">
                                         FIELD OF STUDY
                                     </label>
-                                    <input type="text" />
+                                    {/* <input type="text" name='field'
+                                     onChange={handleChange}  /> */}
+                                     {
+                                        hasField ?
+                                        <input type="text" name='field'
+                                         onChange={handleChange}  
+                                        /> :
+
+                                        <input type="text"
+                                            disabled
+                                          placeholder='not allowed'
+                                        />
+                                     }
                                 </div>
+                                
                             </div>
                             <div className='buttons-continue'>
                                 <Link to='/resumeData/skills' className='continue' type='submit'>Continue</Link> 
