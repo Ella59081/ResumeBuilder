@@ -14,7 +14,7 @@ function Skills(){
     const navigate = useNavigate();
 
     const [allSkills, setAllSkills] = useState([
-        '', '', '', ''
+        
     ])
 
     const [newSkill, setNewSkill] = useState('')
@@ -25,9 +25,15 @@ function Skills(){
 
     } 
 
+    const deleteSkills = (index) =>{
+        setAllSkills((allSkills) => allSkills.filter((_,i) => i !== index))
+        updateForm('skills', allSkills)
+    }
+
     const handleChange = (e) =>{
         const {name, value} = e.target;
         updateForm('skills', {[name] : value});
+
     }
 
     const handleSubmit = (e) =>{
@@ -41,7 +47,7 @@ function Skills(){
                         <div className="header">
                           <h1>Enter your different skills</h1>
                           <p>Include both industrial skills and soft skills</p>
-                          <p>Enter at least 5 skills</p>
+                          <p>Enter at least 2 skills</p>
                         </div>
                         <div className="form">
                             <div class="roles">
@@ -57,12 +63,14 @@ function Skills(){
                                 </div> */}
                                 <div className="flex">
                                     <div className="name theSkills">
+                                        <input type="text" name='skill1' onChange={handleChange} />
+                                        <input type="text" name='skill2' onChange={handleChange} />
                                         {
                                             allSkills.map((allSkills, index) =>(
                                                 <li className='skill' key={index}>
-                                                    <input type="text" name={`skill${index + 1}`} onChange={handleChange}/>
-                                                    <button className='delete' type='button'>
-                                                        img
+                                                    <input type="text" name={`skill${index + 3}`} onChange={handleChange}/>
+                                                    <button onClick={() => deleteSkills(index)} className='delete' type='button'>
+                                                        <img src="/src/assets/images/xmark-solid.svg" alt="" />
                                                     </button>
                                                 </li>
                                             ))
@@ -71,7 +79,7 @@ function Skills(){
                                 </div>
                             </div>
                             <button type='button' onClick={addSkill} className="add-skills">
-                                Add skills
+                                + Add skills
                             </button>
                             <div className='buttons-continue'>
                                 <Link to='/resumeData/summary' className='continue' type='submit'>Continue</Link> 
