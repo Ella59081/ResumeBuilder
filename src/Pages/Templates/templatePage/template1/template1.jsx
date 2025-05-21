@@ -51,11 +51,11 @@ function Template1() {
                                     <div className="left">
                                         <div className="prof">
                                             <h6>PROFESSIONAL SUMMARY</h6>
-                                            <p className="top">Creative social media manager with
-                                                proven record of success in building
-                                                brand awareness, increasing followers
-                                                and patnering with top influencers 
-                                                throughout the country.
+                                            <p className="top">
+                                                {
+                                                   formData.summary.professionalSummary ? formData.summary.professionalSummary :
+                                                   "Creative social media manager with proven record of success in building brand awareness, increasing followers and patnering with top influencers throughout the country."
+                                                }
                                             </p>
                                         </div>
                                         <div className="work">
@@ -143,13 +143,23 @@ function Template1() {
                                         </div>
                                         <div className="skills">
                                             <h6>SKILLS</h6>
-                                            <p className="top">. Market research</p>
-                                            <p>{
-                                                 formData.skills.skill1 ? '.' + ' ' +  formData.skills.skill1 : '. Market research'
-                                                }</p>
-                                            <p>. Budgeting</p>
-                                            <p>. Scheduling</p>
-                                            <p>. Scheduling</p>
+                                            {
+                                                formData.skills.skill1 ?
+                                                Object.keys(formData.skills).map((key) =>(
+                                                    <p key={key}>. {formData.skills[key]}</p>
+                                                ))
+
+                                                :
+                                                <div>
+                                                <p>. Scheduling </p>
+                                                <p>. Scheduling </p>
+                                                <p>. Budgeting </p>
+                                                <p>. Planning </p>
+                                                </div>
+                                                // '. Scheduling .Scheduling . love'
+                                                
+                                            }
+            
                                         </div>
                                         <div className="education">
                                             <h6>EDUCATION</h6>

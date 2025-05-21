@@ -165,7 +165,7 @@
     font-size: 10px;
 }
 .side-in{
-    width: 50px;
+    padding: 10px;
     background-color: rgb(138, 212, 255);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

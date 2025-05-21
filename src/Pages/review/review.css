@@ -134,14 +134,14 @@
 .edit{
     position: absolute;
     margin-top: 5px;
-    margin-left: 280px;
+    margin-left: 270px;
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
 }
 .closer{
-    margin-left: 150px;
+    margin-left: 170px;
 }
 .edit img{
     height: 15px;

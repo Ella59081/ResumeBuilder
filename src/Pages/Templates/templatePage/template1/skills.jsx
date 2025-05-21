@@ -17,17 +17,30 @@ function Skills(){
         
     ])
 
-    const [newSkill, setNewSkill] = useState('')
+    const [skillNo, setSkillNo] = useState(2)
 
 
     const addSkill = () =>{
-        setAllSkills([...allSkills, ''])
-
+        setAllSkills([...allSkills, '']);
+        // setAllSkills(allSkills =>[...allSkills, {name: ''}]),
+        // updateForm('skills', allSkills)
+        setSkillNo((prev) => prev + 1)
+        console.log(skillNo)
     } 
 
     const deleteSkills = (index) =>{
-        setAllSkills((allSkills) => allSkills.filter((_,i) => i !== index))
-        updateForm('skills', allSkills)
+        setAllSkills((prev) => prev.filter((_,i) => i !== index));
+        // updateForm('skills', allSkills)
+        const stored = JSON.parse(localStorage.getItem('formData'));
+
+        const storedSkills = stored.skills || {};
+
+        Object.keys(storedSkills).filter((_,i) => i !== index)
+        updateForm('skills', storedSkills); 
+
+        setSkillNo((prev) => prev - 1)
+
+        console.log(stored)
     }
 
     const handleChange = (e) =>{
@@ -41,13 +54,14 @@ function Skills(){
         navigate('/resumeData/summary')
     }
 
+    
     return (
         <>
             <form className="first-part">
                         <div className="header">
                           <h1>Enter your different skills</h1>
                           <p>Include both industrial skills and soft skills</p>
-                          <p>Enter at least 2 skills</p>
+                          <p>Enter at least 2 skills, maximum of 8 skills</p>
                         </div>
                         <div className="form">
                             <div class="roles">
@@ -78,8 +92,9 @@ function Skills(){
                                     </div>
                                 </div>
                             </div>
-                            <button type='button' onClick={addSkill} className="add-skills">
-                                + Add skills
+                            <button type='button' onClick={addSkill} 
+                              className="add-skills" disabled = {skillNo == 8}>
+                                + Add skills 
                             </button>
                             <div className='buttons-continue'>
                                 <Link to='/resumeData/summary' className='continue' type='submit'>Continue</Link> 
