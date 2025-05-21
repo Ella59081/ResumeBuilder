@@ -2,14 +2,37 @@ import './template1.css'
 import { useContext, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { FormContext } from '../../../../contexts/FormContext'
+import Overview from '../../../overview/overview'
+import CloseButton from '../../../../components/closeButton'
 
 
 function Template1() {
+
+    const closeButton = ()=>{
+        return ( 
+        <>
+        <button>
+            closedX
+        </button>
+        
+        </>
+        )
+    }
 
     const {formData} = useContext(FormContext);
 
     // const ContinueButton = (padding, text, backgroundColor, borderRaduis, width) =>{
     // }
+
+    const [isClicked, setIsClicked] = useState(false)
+
+    const openOverview = () =>{
+        setIsClicked(true)
+    }
+
+    const closeOverview = () =>{
+        setIsClicked(false)
+    }
 
     return(
         <>
@@ -36,7 +59,7 @@ function Template1() {
                     <section className="detForm">
                         <Outlet />
                     </section>
-                    <div className="photo">
+                    <div onClick={openOverview} className="photo">
                         <div className="temp-des">
                             <div className="side-in"></div>
                             <div className="main-in">
@@ -202,6 +225,29 @@ function Template1() {
                         </div>
                     </div>
                 </div>
+                {
+                    isClicked === true && 
+                    // <div className="overview">
+                    //     <div className="viewResume">
+                    //         <h1>A basic review of your template</h1>
+                    //         <h2>Exit this page: </h2>
+                    //         <button onClick={closeOverview}>X</button>
+                    //     </div>
+                    // </div>
+
+                    <div className='overview'>
+                        <div className='removeOv'>
+                            <button className='exit' onClick={closeOverview}>
+                              <img src="/src/assets/images/xmark-solid.svg" alt="" />
+                            </button>
+                        </div>
+                        <Overview/>
+                    </div>
+                    
+                    
+                    
+                }
+                
           </div>
         </>
     )

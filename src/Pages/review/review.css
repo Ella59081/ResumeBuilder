@@ -196,3 +196,9 @@
 .temps-grid img{
     height: 250px;
 }
+
+.viewResume{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
