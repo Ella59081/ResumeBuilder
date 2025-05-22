@@ -48,6 +48,7 @@
     flex-direction: column;
     gap: 25px;
     width: 60%;
+    
 }
 .revright{
     display: flex;
@@ -170,6 +171,7 @@
     font-size: 16px;
     background-color: black;
     color: white;
+    text-decoration: none;
 }
 .temp-rev{
     border: 1px solid white;

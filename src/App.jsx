@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './App.css'
 import Header from './components/Header/header'
 import Home from './Pages/Home/Home'
@@ -13,22 +13,23 @@ import Skills from './Pages/Templates/templatePage/template1/skills'
 import Summary from './Pages/Templates/templatePage/template1/summary'
 import Review from './Pages/review/review'
 import Overview from './Pages/overview/overview'
-import { FormProvider } from './contexts/FormContext'
+import { FormContext, FormProvider } from './contexts/FormContext'
 import Experience2 from './Pages/Templates/templatePage/template1/experience2'
 import Experience3 from './Pages/Templates/templatePage/template1/experience3'
 // import { FormContext } from './contexts/FormContext'
 
 
+
 function App() {
+
   
   return (
     <>
 
     <TemplateContext>
       <FormProvider>
+        
       <Header/>
-      {/* <Home/>
-      <Templates/> */}
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/templates' element={<Templates/>}/>

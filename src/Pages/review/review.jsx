@@ -1,5 +1,6 @@
 import './review.css'
 import { Link } from 'react-router-dom'
+import ResumeDownload from '../../components/downloadResumeBtn'
 function Review(){
     return(
         <>
@@ -112,7 +113,7 @@ function Review(){
                 
                 <div className="preview">
                     <div className="rev-buttons">
-                        <button className='download'>Download</button>
+                        <ResumeDownload/>
                         <button className='download'>Email</button>
                     </div>
                     <div className="temp-rev">
