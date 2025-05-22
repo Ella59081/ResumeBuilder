@@ -1,0 +1,28 @@
+.viewResume{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 70px;   
+}
+.viewResume h1{
+    font-size: 35px;
+}
+.over{
+    width: 40%;
+}
+.over p{
+    font-size: 14px;
+}
+.over h6{
+    font-size: 15px;
+}
+.over .left{
+    gap: 25px;
+}
+.over .right{
+    gap: 25px;
+}
+.over .main-in{
+    padding: 30px;
+}
