@@ -4,8 +4,14 @@ import {
     Text,
     View, 
     Document,
-    StyleSheet 
+    StyleSheet, 
+    Font
 } from "@react-pdf/renderer";
+
+Font.register({
+    family: 'Inter',
+    src: '/src/assets/fonts/Inter-VariableFont_opsz,wght.ttf'
+})
 
 const styles = StyleSheet.create({
     page: {
@@ -23,7 +29,9 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection: 'column',
         gap: 25,
-        padding: 30
+        padding: 30,
+        
+        fontFamily: 'Inter'
     },
     contentHeading: {
         display: 'flex',
@@ -33,7 +41,7 @@ const styles = StyleSheet.create({
     },
     contentHeader: {
         fontSize: 15,
-        fontWeight: 'bold',
+        fontWeight: '1000',
         textTransform: 'uppercase',
     },
     contentSubHeading: {
@@ -43,17 +51,20 @@ const styles = StyleSheet.create({
     content: {
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
         width: '95%',
-        gap: 35
+        gap: 40,
     },
     columnLeft: {
         width: '60%',
+        maxWidth: '60%',
         gap: 30,
         display: 'flex',
         flexDirection: 'column',
+        
     },
     columnRight: {
-        width: '40%',
+        width: '35%',
         gap: 30,
         display: 'flex',
         flexDirection: 'column',
@@ -84,7 +95,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         gap: 5,
         backgroundColor: 'rgb(138, 212, 255)',
-        padding: 20,
+        padding: 12,
     },
     p: {
         fontSize: 14,
@@ -98,79 +109,170 @@ const ResumePDF = ({formData}) =>{
     return(
         <Document>
         <Page size={'A4'} style={styles.page}>
-            {/* heading */}
             <View style={styles.sideBar}></View>
             <View style={styles.mainContent}>
                 <View style={styles.contentHeading}>
-                    <Text style={styles.contentHeader}>Jeremy fisher</Text>
-                    <Text style={styles.contentSubHeading}>Marketing strategies</Text>
+                    <Text style={styles.contentHeader}>
+                        <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name + "  " : 'YOUR NAME'}</span>
+                        <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name : ''}</span>
+                    </Text>
+                    <Text style={styles.contentSubHeading}>
+                        {formData.experience.title1 ? formData.experience.title1 : ''}
+                    </Text>
                 </View>
                 <View style={styles.content}>
                     <View style={styles.columnLeft}>
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Summary</Text>
-                            <Text>ygdyjsyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadgvsh
-                                dbsnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnmbjsjds
-                                jdhssssssssssssvmbbbbbbsdcghvdghcvhdfchydgvvsghcdh
-                                sdjgscftfdddddddddddddddddddddddddddddddddddddddc
+                            <Text>{
+                                   formData.summary.professionalSummary ? formData.summary.professionalSummary : ''
+                                }
                             </Text>
                         </View>
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Work history</Text>
                             <View style={styles.subSection}>
-                                <Text style={styles.subHeading}>Socials media manager</Text>
-                                <Text>Social media from this to this</Text>
+                                <Text style={styles.subHeading}>
+                                    {formData.experience.title1 ? formData.experience.title1 : ''}
+                                </Text>
+                                <Text>
+                                    {formData.experience.length !== 0 ? 
+                                        formData.experience.company + ' ' + 
+                                        formData.experience.title1 + ' ' + 'since'
+                                        + ' ' + formData.experience.start_date.slice(0, 4) : ''
+                                    }
+                                </Text>
                                 <View style={styles.section}>
-                                    <Text>. Managed roles and kept everything up to date</Text>
-                                    <Text>. did the same thing over and over again</Text>
-                                    <Text>. resist the urge to take a nap whiles cooking</Text>
+                                    <Text>{formData.experience.role1 ? '.' + ' ' + formData.experience.role1 : ''}</Text>
+                                    <Text>{formData.experience.role2 ? '.' + ' ' + formData.experience.role2 : ''}</Text>
+                                    <Text>{formData.experience.role3 ? '.' + ' ' + formData.experience.role3 : ''}</Text>
                                 </View>
 
                             </View>
                         </View>
-                        <View style={styles.subSection}>
-                                <Text style={styles.subHeading}>Social media from this to this</Text>
+                        {
+                            formData.experience2.length !== 0 ? 
+                            <View style={styles.subSection}>
+                                <Text style={styles.subHeading}>
+                                    {
+                                        formData.experience2.job2 ? formData.experience2.job2 : ''
+                                    }
+                                </Text>
+                                <Text>
+                                    {
+                                        formData.experience2.length !== 0 ? formData.experience2.company
+                                        + ' ' + formData.experience2.job2 + ' ' + 'from' + ' ' +
+                                        formData.experience2.start_date.slice(0, 4) + ' ' + 'to' + ' ' +
+                                        formData.experience2.end_date.slice(0, 4) : ' '
+                                    }
+                                </Text>
                                 <View style={styles.section}>
-                                    <Text>. Managed roles and kept everything up to date</Text>
-                                    <Text>. did the same thing over and over again</Text>
-                                    <Text>. resist the urge to take a nap whiles cooking</Text>
+                                    <Text>{formData.experience2.role1 ? '.' + ' ' + formData.experience2.role1 : ''}</Text>
+                                    <Text>{formData.experience2.role2 ? '.' + ' ' + formData.experience2.role2 : ''}</Text>
+                                    <Text>{formData.experience2.role3 ? '.' + ' ' + formData.experience2.role3 : ''}</Text>
                                 </View>
-                        </View>
-
+                            </View> : ''
+                        }
+                        {
+                            formData.experience3.length !== 0 ? 
+                            <View style={styles.subSection}>
+                                <Text style={styles.subHeading}>
+                                    {
+                                        formData.experience3.job3 ? formData.experience3.job3 : ''
+                                    }
+                                </Text>
+                                <Text>
+                                    {
+                                        formData.experience3.length !== 0 ? formData.experience3.company
+                                        + ' ' + formData.experience3.job3 + ' ' + 'from' + ' ' +
+                                        formData.experience3.start_date.slice(0, 4) + ' ' + 'to' + ' ' +
+                                        formData.experience3.end_date.slice(0, 4) : ' '
+                                    }
+                                </Text>
+                                <View style={styles.section}>
+                                    <Text>{formData.experience3.role1 ? '.' + ' ' + formData.experience3.role1 : ''}</Text>
+                                    <Text>{formData.experience3.role2 ? '.' + ' ' + formData.experience3.role2 : ''}</Text>
+                                    <Text>{formData.experience3.role3 ? '.' + ' ' + formData.experience3.role3 : ''}</Text>
+                                </View>
+                            </View> : ''
+                        }
+                        
                     </View>
                     <View style={styles.columnRight}>
                         <View style={styles.contact}>
                             <Text style={styles.sectionTitle}>Contact</Text>
                             <View style={styles.subSection}>
-                                <Text>090765433678</Text>
-                                <Text>lesly"gmail.com</Text>
-                                <Text>no2 off owhoda street</Text>
+                                <Text>
+                                    <img src="/src/assets/images/phone-solid.svg" alt="" />
+                                    {formData.personalDetails.phone ? formData.personalDetails.phone : ''}
+                                </Text>
+                                <Text>{formData.personalDetails.email ? formData.personalDetails.email : ''}</Text>
+                                <Text>{formData.personalDetails.address ? formData.personalDetails.address : ''}</Text>
                             </View>
                         </View>
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Skills</Text>
                             <View style={styles.subSection}>
-                                <Text>. Reading many pages at a time</Text>
-                                <Text>. Reading many pages at a time</Text>
-                                <Text>. Reading many pages at a time</Text>
-                                <Text>. Reading many pages at a time</Text>
+                                {
+                                    formData.skills!== 0 ?
+                                    Object.keys(formData.skills).map((key) =>(
+                                    <Text key={key}>. {formData.skills[key]}</Text>
+                                    ))
+
+                                    : ''                                               
+                                }
                             </View>
                         </View>
-                        <View style={styles.section}>
+                        {
+                            formData.education.length !== 0 ? 
+                            <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Education</Text>
                             <View style={styles.subSection}>
-                                <Text>Bachelor of arts</Text>
-                                <Text>Communications</Text>
-                                <Text>University of ibadon</Text>
+                                <Text>
+                                    {
+                                        formData.education.degree ? formData.education.degree : ''
+                                    }
+                                </Text>
+                                <Text>
+                                    {
+                                        formData.education.field ? formData.education.field : ''
+                                    }
+                                </Text>
+                                <Text>
+                                    {
+                                        formData.education.school ? formData.education.school : ''
+                                    }
+                                    <span>
+                                        {
+                                            formData.education.location ? ',' + ' ' + formData.education.location : ', '
+                                        }
+                                    </span>
+                                </Text>
+                                <Text>
+                                    Graduated : 
+                                    {
+                                        formData.education.grad_date ? ' ' + formData.education.grad_date : ''
+                                    }
+                                </Text>
                             </View>
-                        </View>
-                        <View style={styles.section}>
+                            </View> : ''
+                        }
+                        {
+                            formData.education.certification.length !== 0 ?
+                            <View style={styles.section}>
                             <Text style={styles.sectionTitle}>
-                                <View style={subSection}>
-                                    <Text>Advanced diploma</Text>
-                                </View>
+                                Certification
                             </Text>
-                        </View>
+                            <View style={styles.section}>
+                                <Text>
+                                    {
+                                        formData.education.certification ? formData.education.certification : ''
+                                    }
+                                </Text>
+                            </View>
+                            </View>  :
+                            ''
+                        }
                     </View>
                 </View>
             </View>

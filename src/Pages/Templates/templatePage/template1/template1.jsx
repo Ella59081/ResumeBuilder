@@ -179,7 +179,6 @@ function Template1() {
                                                 <p>. Budgeting </p>
                                                 <p>. Planning </p>
                                                 </div>
-                                                // '. Scheduling .Scheduling . love'
                                                 
                                             }
             
