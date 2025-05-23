@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     },
     content: {
         display: 'flex',
+        flexDirection: 'row',
         width: '95%',
         gap: 35
     },
@@ -82,7 +83,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 5,
-        backgroundColor: 'rgb(138, 212, 255)'
+        backgroundColor: 'rgb(138, 212, 255)',
+        padding: 20,
     },
     p: {
         fontSize: 14,
@@ -116,9 +118,9 @@ const ResumePDF = ({formData}) =>{
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Work history</Text>
                             <View style={styles.subSection}>
-                                <Text style={styles.contentSubHeading}>Socials media manager</Text>
+                                <Text style={styles.subHeading}>Socials media manager</Text>
                                 <Text>Social media from this to this</Text>
-                                <View style={styles.subSection}>
+                                <View style={styles.section}>
                                     <Text>. Managed roles and kept everything up to date</Text>
                                     <Text>. did the same thing over and over again</Text>
                                     <Text>. resist the urge to take a nap whiles cooking</Text>
@@ -127,16 +129,48 @@ const ResumePDF = ({formData}) =>{
                             </View>
                         </View>
                         <View style={styles.subSection}>
-                                <Text style={styles.contentSubHeading}>Social media from this to this</Text>
-                                <View style={styles.subSection}>
+                                <Text style={styles.subHeading}>Social media from this to this</Text>
+                                <View style={styles.section}>
                                     <Text>. Managed roles and kept everything up to date</Text>
                                     <Text>. did the same thing over and over again</Text>
                                     <Text>. resist the urge to take a nap whiles cooking</Text>
                                 </View>
                         </View>
+
                     </View>
                     <View style={styles.columnRight}>
-                        <Text>ready to do my absolute best to do whatever i can do to help my friends</Text>
+                        <View style={styles.contact}>
+                            <Text style={styles.sectionTitle}>Contact</Text>
+                            <View style={styles.subSection}>
+                                <Text>090765433678</Text>
+                                <Text>lesly"gmail.com</Text>
+                                <Text>no2 off owhoda street</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <Text style={styles.sectionTitle}>Skills</Text>
+                            <View style={styles.subSection}>
+                                <Text>. Reading many pages at a time</Text>
+                                <Text>. Reading many pages at a time</Text>
+                                <Text>. Reading many pages at a time</Text>
+                                <Text>. Reading many pages at a time</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <Text style={styles.sectionTitle}>Education</Text>
+                            <View style={styles.subSection}>
+                                <Text>Bachelor of arts</Text>
+                                <Text>Communications</Text>
+                                <Text>University of ibadon</Text>
+                            </View>
+                        </View>
+                        <View style={styles.section}>
+                            <Text style={styles.sectionTitle}>
+                                <View style={subSection}>
+                                    <Text>Advanced diploma</Text>
+                                </View>
+                            </Text>
+                        </View>
                     </View>
                 </View>
             </View>

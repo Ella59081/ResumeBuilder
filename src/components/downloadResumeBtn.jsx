@@ -14,9 +14,6 @@ const ResumeDownload = () =>{
             Download */}
             {({ loading }) => (loading ? "Downloading" : "Download Resume")}
         </PDFDownloadLink>
-    //     <PDFDownloadLink document={<ResumePDF formData={formData} />} fileName="Resume.pdf">
-    //   {({ loading }) => (loading ? "Preparing PDF..." : "Download Resume")}
-    // </PDFDownloadLink>
 
     )
 }
