@@ -105,6 +105,39 @@ const styles = StyleSheet.create({
 
 
 const ResumePDF = ({formData}) =>{
+    const experienceLength = Object.keys(formData.experience).length !== 0
+    const experience2Length = Object.keys(formData.experience2).length !== 0
+    const experience3Length = Object.keys(formData.experience3).length !== 0
+    const skillsLength = Object.keys(formData.skills).length !== 0
+    const educationLength = Object.keys(formData.education).length !== 0
+    const begin = formData.experience.start_date ? 
+    formData.experience.start_date.slice(0, 4) : ''
+    const begin2 = formData.experience2.start_date ?
+    formData.experience2.start_date.slice(0, 4) : ''
+    const end = formData.experience2.end_date ? 
+    formData.experience2.end_date.slice(0, 4) : ''
+    const begin3 = formData.experience3.start_date ? 
+    formData.experience3.start_date.slice(0, 4) : ''
+    const end2 = formData.experience3.end_date ? 
+    formData.experience3.end_date.slice(0, 4) : ''
+    
+    const FirstName = formData.personalDetails.f_name ?
+    formData.personalDetails.f_name + ' ' : ''
+    const LastName = formData.personalDetails.l_name ?
+    formData.personalDetails.l_name : ''
+    const location = formData.education.location ?
+    ', ' + formData.education.location + '.' : ''
+    const currentCompany = formData.experience.company ? 
+    formData.experience.company : ''
+    const lastCompany = formData.experience2.company ?
+    formData.experience2.company : ''
+    const lastCompany2 = formData.experience3.company ?
+    formData.experience3.company : ''
+
+    console.log(experience2Length)
+
+    
+    // const certificationLength = formData.education.certification.length
     
     return(
         <Document>
@@ -113,8 +146,7 @@ const ResumePDF = ({formData}) =>{
             <View style={styles.mainContent}>
                 <View style={styles.contentHeading}>
                     <Text style={styles.contentHeader}>
-                        <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name + "  " : 'YOUR NAME'}</span>
-                        <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name : ''}</span>
+                        {FirstName + LastName}
                     </Text>
                     <Text style={styles.contentSubHeading}>
                         {formData.experience.title1 ? formData.experience.title1 : ''}
@@ -123,7 +155,7 @@ const ResumePDF = ({formData}) =>{
                 <View style={styles.content}>
                     <View style={styles.columnLeft}>
                         <View style={styles.section}>
-                            <Text style={styles.sectionTitle}>Summary</Text>
+                            <Text style={styles.sectionTitle}>Professional Summary</Text>
                             <Text>{
                                    formData.summary.professionalSummary ? formData.summary.professionalSummary : ''
                                 }
@@ -136,10 +168,11 @@ const ResumePDF = ({formData}) =>{
                                     {formData.experience.title1 ? formData.experience.title1 : ''}
                                 </Text>
                                 <Text>
-                                    {formData.experience.length !== 0 ? 
-                                        formData.experience.company + ' ' + 
+                                    { 
+                                        experienceLength ?
+                                        currentCompany  + ' ' + 
                                         formData.experience.title1 + ' ' + 'since'
-                                        + ' ' + formData.experience.start_date.slice(0, 4) : ''
+                                        +  ' ' + begin : ''
                                     }
                                 </Text>
                                 <View style={styles.section}>
@@ -151,7 +184,7 @@ const ResumePDF = ({formData}) =>{
                             </View>
                         </View>
                         {
-                            formData.experience2.length !== 0 ? 
+                            experience2Length ? 
                             <View style={styles.subSection}>
                                 <Text style={styles.subHeading}>
                                     {
@@ -160,10 +193,9 @@ const ResumePDF = ({formData}) =>{
                                 </Text>
                                 <Text>
                                     {
-                                        formData.experience2.length !== 0 ? formData.experience2.company
+                                        experience2Length ? lastCompany
                                         + ' ' + formData.experience2.job2 + ' ' + 'from' + ' ' +
-                                        formData.experience2.start_date.slice(0, 4) + ' ' + 'to' + ' ' +
-                                        formData.experience2.end_date.slice(0, 4) : ' '
+                                        begin2 + ' ' + 'to' + ' ' + end : ''
                                     }
                                 </Text>
                                 <View style={styles.section}>
@@ -174,7 +206,7 @@ const ResumePDF = ({formData}) =>{
                             </View> : ''
                         }
                         {
-                            formData.experience3.length !== 0 ? 
+                            experience3Length ? 
                             <View style={styles.subSection}>
                                 <Text style={styles.subHeading}>
                                     {
@@ -183,10 +215,10 @@ const ResumePDF = ({formData}) =>{
                                 </Text>
                                 <Text>
                                     {
-                                        formData.experience3.length !== 0 ? formData.experience3.company
+                                        experience3Length ? lastCompany2
                                         + ' ' + formData.experience3.job3 + ' ' + 'from' + ' ' +
-                                        formData.experience3.start_date.slice(0, 4) + ' ' + 'to' + ' ' +
-                                        formData.experience3.end_date.slice(0, 4) : ' '
+                                        begin3 + ' ' + 'to' + ' ' +
+                                        end2 : ''
                                     }
                                 </Text>
                                 <View style={styles.section}>
@@ -214,7 +246,7 @@ const ResumePDF = ({formData}) =>{
                             <Text style={styles.sectionTitle}>Skills</Text>
                             <View style={styles.subSection}>
                                 {
-                                    formData.skills!== 0 ?
+                                    skillsLength ?
                                     Object.keys(formData.skills).map((key) =>(
                                     <Text key={key}>. {formData.skills[key]}</Text>
                                     ))
@@ -224,7 +256,7 @@ const ResumePDF = ({formData}) =>{
                             </View>
                         </View>
                         {
-                            formData.education.length !== 0 ? 
+                            educationLength ? 
                             <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Education</Text>
                             <View style={styles.subSection}>
@@ -242,23 +274,23 @@ const ResumePDF = ({formData}) =>{
                                     {
                                         formData.education.school ? formData.education.school : ''
                                     }
-                                    <span>
+                                    <Text>
                                         {
-                                            formData.education.location ? ',' + ' ' + formData.education.location : ', '
+                                            formData.education.location ?   location : ''
                                         }
-                                    </span>
+                                    </Text>
                                 </Text>
                                 <Text>
-                                    Graduated : 
+                                     
                                     {
-                                        formData.education.grad_date ? ' ' + formData.education.grad_date : ''
+                                        formData.education.grad_date ? 'Graduated :' + ' ' + formData.education.grad_date : ''
                                     }
                                 </Text>
                             </View>
                             </View> : ''
                         }
                         {
-                            formData.education.certification.length !== 0 ?
+                            formData.education.certification ?
                             <View style={styles.section}>
                             <Text style={styles.sectionTitle}>
                                 Certification
@@ -266,11 +298,12 @@ const ResumePDF = ({formData}) =>{
                             <View style={styles.section}>
                                 <Text>
                                     {
+                                        
                                         formData.education.certification ? formData.education.certification : ''
                                     }
                                 </Text>
                             </View>
-                            </View>  :
+                            </View>  : 
                             ''
                         }
                     </View>
