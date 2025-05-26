@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form'
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { detailsSchema } from '../../../../validations/formDataSchema'
+import InputField from '../../../../components/InputField'
+import { detailsSchema } from '../../../../validations/formDataSchema'
 
 function PersonalDetails(){
 
@@ -19,14 +20,18 @@ function PersonalDetails(){
     //     address: "",
     // });
 
-    // Initialize  schema validation
-    // const {
-    //     register,
-    //     control,
-    //     handleSubmit,
-    //     formState: { errors },
-    //     watch,
-    // } = useForm();
+    //Initialize  schema validation
+    const {
+    control,
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    } = useForm({
+        mode: 'onSubmit',
+        reValidateMode: 'onSubmit',
+      resolver: yupResolver(detailsSchema),
+    });
 
     // const watchedValues = watch();
 
@@ -39,9 +44,10 @@ function PersonalDetails(){
     const handleChange = (e) =>{
         const {name, value} = e.target;
         updateForm('personalDetails', {[name] : value});
+        reset()
     }
 
-    const handleSubmit = (e) =>{
+    const onSubmit = (e) =>{
         e.preventDefault();
         navigate('/resumeData/experience')
     }
@@ -49,7 +55,7 @@ function PersonalDetails(){
 
     return(
         <>
-        <form className="first-part" onSubmit={handleSubmit}>
+        <form className="first-part" onSubmit={handleSubmit(onSubmit)}>
                         <div className="header">
                           <h1>Enter your Personal Details</h1>
                           <p>Include your full name and ways for employers to reach you</p>
@@ -121,8 +127,16 @@ function PersonalDetails(){
                                 
                             </div>
                             <button style={{marginTop: "50px"}} type="submit" className='continue'>Continue</button>
-                            {/* <button onClick={handleSubmit} type="submit">submit</button> */}
-                            
+                            {/* <button  type="submit">submit</button> */}
+                            <InputField
+                                name='FirstName'
+                                control={control}
+                                label="FirstName"
+                                type='text'
+                                error={errors.FirstName?.message}
+                                onChange={handleChange}
+                                
+                            />
                         </div>
         </form>
         </>
