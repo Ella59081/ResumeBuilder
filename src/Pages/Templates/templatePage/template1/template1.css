@@ -148,15 +148,17 @@
 }
 .photo{
     width: 30%;
+    object-fit: contain;
 }
 .temp-des{
     display: flex;
     background-color: white;
-    width: 100%;
+    max-width: 100%;
     border-radius: 5px;
     border: 1px solid black;
     position: relative;
     bottom: 20px;
+    object-fit: contain;
 }
 .temp-des p{
     font-size: 8.5px;
@@ -175,6 +177,7 @@
     flex-direction: column;
     gap: 25px;
     padding: 20px;
+    object-fit: contain;
 }
 .header-in{
     display: flex;
@@ -191,12 +194,13 @@
     flex-direction: column;
     gap: 15px;
     max-width: 60%;
+    
 }
 .right{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 40%;
+    max-width: 40%;
 }
 .contact{
     background-color: rgb(138, 212, 255);

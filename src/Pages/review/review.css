@@ -14,12 +14,13 @@
     background-color: white;
     width: 100%;
     border-radius: 5px;
+    min-height: 90vh;
 }
 .revtemp-des p{
     font-size: 13px;
 }
 .revside-in{
-    width: 80px;
+    padding: 15px;
     background-color: rgb(138, 212, 255);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -29,6 +30,7 @@
     flex-direction: column;
     gap: 25px;
     padding: 30px;
+    width: 100%;
 }
 .revmain-in h6{
     font-size: 14px;
@@ -38,6 +40,12 @@
     align-items: center;
     flex-direction: column;
     gap: 5px;
+}
+.revheader-in:hover{
+    background-color: rgba(245, 245, 245, 0.271);
+}
+.revheader-in:hover .edit{
+    visibility: visible;
 }
 .revsummary{
     display: flex;

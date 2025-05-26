@@ -27,7 +27,8 @@ function Education(){
 
         const  HighSchool = () =>{
             setHasField(false);
-            // console.log(hasField)
+
+            console.log(hasField)
         }
 
     return (
@@ -76,7 +77,7 @@ function Education(){
                                     </label>
                                     <select name='degree' onChange={handleChange}>
                                         <option>select</option>
-                                        <option onClick={hasField}>high school diploma</option>
+                                        <option onAuxClick={HighSchool}>high school diploma</option>
                                         <option>bachelor of science</option>
                                     </select>
                                 </div>
@@ -84,19 +85,10 @@ function Education(){
                                     <label htmlFor="start">
                                         FIELD OF STUDY
                                     </label>
-                                    {/* <input type="text" name='field'
-                                     onChange={handleChange}  /> */}
-                                     {
-                                        hasField ?
-                                        <input type="text" name='field'
-                                         onChange={handleChange}  
-                                        /> :
-
-                                        <input type="text"
-                                            disabled
-                                          placeholder='not allowed'
-                                        />
-                                     }
+                                    <input type="text" name='field'
+                                     onChange={handleChange}  
+                                     disabled={hasField== false}/>
+    
                                 </div>
                                 
                             </div>

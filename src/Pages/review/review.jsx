@@ -1,7 +1,19 @@
 import './review.css'
 import { Link } from 'react-router-dom'
 import ResumeDownload from '../../components/downloadResumeBtn'
+import { useContext, useState } from 'react'
+import { FormContext } from '../../contexts/FormContext'
+
+
 function Review(){
+
+    const {formData} = useContext(FormContext);
+    const experienceLength = Object.keys(formData.experience).length !== 0
+    const experience2Length = Object.keys(formData.experience2).length !== 0
+    const experience3Length = Object.keys(formData.experience3).length !== 0
+    const skillsLength = Object.keys(formData.skills).length !== 0
+    const educationLength = Object.keys(formData.education).length !== 0
+
     return(
         <>
             <div className="rev-con">
@@ -10,101 +22,193 @@ function Review(){
                             <div className="revside-in"></div>
                             <div className="revmain-in">
                                 <div className="revheader-in">
-                                    <h6>JEREMY FISHER</h6>
-                                    <p>KNOWLEDGEABLE SOCIAL MEDIA</p>
+                                    <Link to='/resumeData' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
+                                    <h6>
+                                        <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'YOUR '}</span>
+                                        <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'NAME'}</span>
+                                    </h6>
+                                    <p>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : ''}</p>
                                 </div>
                                 <div className="revsummary">
                                     <div className="revleft">
                                         <div className="revprof">
                                             <Link to='/resumeData/summary' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>PROFESSIONAL SUMMARY</h6>
-                                            <p className='top'>Creative social media manager with
-                                                proven record of success in building
-                                                brand awareness, increasing followers
-                                                and patnering with top influencers 
-                                                throughout the country. I did a lot of works 
-                                                in terms of managing social media accounts.
+                                            <p className='top'>
+                                               {
+                                                   formData.summary.professionalSummary ? formData.summary.professionalSummary :
+                                                   ""
+                                                }
                                             </p>
                                         </div>
                                         <div className="revwork">
                                             <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt=""/></Link>
                                             <h6>WORK HISTORY</h6>
-                                            <h6 className='top'>Social Media Manager</h6>
-                                            <span>
-                                                infasec social media manager since march 2021
-                                            </span>
-                                            <p className='top'>
-                                              . Develop marketing content
+                                            <h6 className='top'>{formData.experience.title1 ? formData.experience.title1 : ''}</h6>
+                                            <p>
+                                                <span>{formData.experience.company ? formData.experience.company + ' ' : ''}</span>
+                                                <span>
+                                                    {formData.experience.start_date ? formData.experience.title1 
+                                                    + ' ' + 'since' + ' ' + formData.experience.start_date.slice(0, 4) :
+                                                    ''}
+                                                </span>
                                             </p>
-                                            <p>. Analyze reported social media</p>
-                                            <p>. Curate and segment content to increase engagement</p>
+                                            <p className='top'>
+                                              {formData.experience.role1 ? '.' + ' ' + formData.experience.role1 : ''}
+                                            </p>
+                                            <p>{formData.experience.role2 ? '.' + ' ' + formData.experience.role2 : ''}</p>
+                                            <p>{formData.experience.role3 ? '.' + ' ' + formData.experience.role3 : ''}</p>
                                         </div>
+                                        {
+                                            experience2Length ?
                                         <div className="revtitle2">
                                             <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
-                                            <h6>Digital Marketing Coordinator</h6>
+                                            <h6>
+                                                {formData.experience2.job2 ? formData.experience2.job2 : ''}
+                                            </h6>
                                             
-                                            <span>
-                                                infasec social media manager since march 2021
-                                            </span>
-                                            <p className='top'>
-                                              . Develop marketing content
+                                            <p>
+                                                <span>{formData.experience2.company ? formData.experience2.company + ' ' : ''}</span>
+                                                <span>
+                                                    {formData.experience2.end_date ? formData.experience2.job2
+                                                    + ' ' + 'from' + ' ' + formData.experience2.start_date.slice(0, 4) + 
+                                                    ' ' + 'to' + ' ' + formData.experience2.end_date.slice(0, 4) :
+                                                    ''}
+                                                </span>
                                             </p>
-                                            <p>. Analyze reported social media</p>
-                                            <p>. Curate and segment content to increase engagement</p>
+                                            <p className="top">
+                                              {formData.experience2.role1 ? '.' + ' ' + formData.experience2.role1 : ''}
+                                            </p>
+                                            <p>
+                                                {formData.experience2.role2 ? '.' + ' ' + formData.experience2.role2 : ''}
+                                            </p>
+                                            <p>
+                                                {formData.experience2.role3 ? '.' + ' ' + formData.experience2.role3 : ''}
+                                            </p>
                                         </div>
+                                        : ''
+                                        }
+                                        {
+                                            experience3Length ?
                                         <div className="revtitle2">
                                             <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             
-                                            <h6>Social Media Manager</h6>
-                                            <span>
-                                                infasec social media manager since march 2021
-                                            </span>
-                                            <p className='top'>
-                                              . Develop marketing content
+                                            <h6>
+                                                {formData.experience3.job3 ? formData.experience3.job3 : ''}
+                                            </h6>
+                                            <p>
+                                                <span>{formData.experience3.company ? formData.experience3.company + ' ' : ''}</span>
+                                                <span>
+                                                    {formData.experience3.end_date ? formData.experience3.job3
+                                                    + ' ' + 'from' + ' ' + formData.experience3.start_date.slice(0, 4) + 
+                                                    ' ' + 'to' + ' ' + formData.experience3.end_date.slice(0, 4) :
+                                                    ''}
+                                                </span>
                                             </p>
-                                            <p>. Analyze reported social media</p>
-                                            <p>. Curate and segment content to increase engagement</p>
+                                            <p className="top">
+                                              {formData.experience3.role1 ? '.' + ' ' + formData.experience3.role1 : ''}
+                                            </p>
+                                            <p>
+                                                {formData.experience3.role2 ? '.' + ' ' + formData.experience3.role2 : ''}
+                                            </p>
+                                            <p>
+                                                {formData.experience3.role3 ? '.' + ' ' + formData.experience3.role3 : ''}
+                                            </p>
                                         </div>
-                                        
+                                           : ''
+                                        }
                                     </div>
                                     <div className="revright">
                                         <div className="revcontact">
                                             <Link to='/resumeData' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>CONTACT</h6>
-                                            <p >
-                                                <img src="/src/assets/images/phone-solid.svg" alt="" />
-                                                080 567 543 12
-                                            </p>
-                                            <p>
-                                                <img src="/src/assets/images/envelope-solid.svg" alt="" />
-                                                example@gmail.com
-                                            </p>
-                                            <p>
-                                                <img src="/src/assets/images/location-dot-solid.svg" alt="" />
-                                                maddison, off close
-                                            </p>
+                                            {
+                                                formData.personalDetails.phone ? 
+                                                <p className='top'>
+                                                  <img src="/src/assets/images/phone-solid.svg" alt="" />
+                                                  <p>{formData.personalDetails.phone}</p>
+                                                </p> : <p></p>
+                                            }
+                                            {
+                                                formData.personalDetails.email ? 
+                                                <p className='top'>
+                                                  <img src="/src/assets/images/envelope-solid.svg" alt="" />
+                                                  <p>{formData.personalDetails.email}</p>
+                                                </p> : <p></p>
+                                            }
+                                            {
+                                                formData.personalDetails.address ? 
+                                                <p className='top'>
+                                                  <img src="/src/assets/images/location-dot-solid.svg" alt="" />
+                                                  <p>{formData.personalDetails.address}</p>
+                                                </p> : 
+                                                <p></p>
+                                            }
+                                            
                                         </div>
+                                        {
+                                            skillsLength ? 
                                         <div className="revskills">
                                             <Link to='/resumeData/skills' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>SKILLS</h6>
-                                            <p>. Market research</p>
-                                            <p>. Budgeting</p>
-                                            <p>. Scheduling</p>
-                                            <p>. Scheduling</p>
-                                            <p>. Scheduling</p>
+                                            {
+                                                formData.skills.skill1 ?
+                                                Object.keys(formData.skills).map((key) =>(
+                                                    <p key={key}>. {formData.skills[key]}</p>
+                                                ))
+
+                                                :
+                                                <div>
+                                                <p>. Scheduling </p>
+                                                <p>. Scheduling </p>
+                                                <p>. Budgeting </p>
+                                                <p>. Planning </p>
+                                                </div>
+                                                
+                                            }
                                         </div>
+                                            : '' 
+                                        }
+                                        {
+                                            educationLength ?
                                         <div className="reveducation">
                                             <Link to='/resumeData/education' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>EDUCATION</h6>
-                                            <p>Bachelor of arts</p>
-                                            <p>Communications and marketing</p>
-                                            <p>university of wiscondion</p>
-                                        </div>
+                                            <p className="top">
+                                                {
+                                                    formData.education.degree ? formData.education.degree : ''
+                                                }
+                                            </p>
+                                            <p>
+                                                {
+                                                    formData.education.field ? formData.education.field : ''
+                                                }
+                                            </p>
+                                            <p>
+                                                {
+                                                    formData.education.school ? formData.education.school : ''
+                                                }
+                                                <span>{
+                                                    formData.education.location ? ',' + ' ' + formData.education.location : ', '
+                                                }</span>
+                                            </p>
+                                            <p>
+                                                 
+                                                {
+                                                    formData.education.grad_date ? 'Graduated :' + ' ' + formData.education.grad_date : ' '
+                                                }
+                                            </p>
+                                        </div> : ''
+                                        }
+                                        {
+                                            formData.education.certification ?
                                         <div className="rcertifications">
                                             <Link to='/resumeData/education' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>CERTIFICATION</h6>
-                                            <p>Google data analytics</p>
+                                            <p>{formData.education.certification}</p>
                                         </div>
+                                           : ''
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +218,7 @@ function Review(){
                 <div className="preview">
                     <div className="rev-buttons">
                         <ResumeDownload/>
-                        <button className='download'>Email</button>
+                       
                     </div>
                     <div className="temp-rev">
                         <h4>Preview templates</h4>
