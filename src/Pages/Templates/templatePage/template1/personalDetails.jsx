@@ -28,8 +28,8 @@ function PersonalDetails(){
     reset,
     formState: { errors },
     } = useForm({
-        mode: 'onSubmit',
-        reValidateMode: 'onSubmit',
+        // mode: 'onSubmit',
+        // reValidateMode: 'onSubmit',
       resolver: yupResolver(detailsSchema),
     });
 
@@ -55,7 +55,7 @@ function PersonalDetails(){
 
     return(
         <>
-        <form className="first-part" onSubmit={handleSubmit(onSubmit)}>
+        <form className="first-part" onSubmit={onSubmit}>
                         <div className="header">
                           <h1>Enter your Personal Details</h1>
                           <p>Include your full name and ways for employers to reach you</p>
@@ -82,7 +82,7 @@ function PersonalDetails(){
                                     //     {required: "This field is required"}
                                     //  )}
                                      />
-                                    {/* {errors.f_name && <p className='errorMsg'>{errors.f_name?.message}!</p> } */}
+                                    {errors.FirstName && <p className='errorMsg'>{errors.FirstName?.message}!</p> }
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
@@ -94,7 +94,7 @@ function PersonalDetails(){
                                     //     {required: "This field is required"}
                                     //  )}
                                     />
-                                    {/* {errors.l_name ? <p className='errorMsg'>{errors.l_name?.message}!</p> : ""} */}
+                                    {errors.l_name ? <p className='errorMsg'>{errors.l_name?.message}!</p> : ""}
                                 </div>
                             </div>
                             <div className="flex">
@@ -105,6 +105,7 @@ function PersonalDetails(){
                                     <input type="email" name="email" id="" 
                                     onChange={handleChange}
                                     />
+                                    {errors.email ? <p className='errorMsg'>{errors.email?.message}!</p> : ""}
                                 </div>
                                 <div className="name">
                                     <label htmlFor="phone">
@@ -113,6 +114,7 @@ function PersonalDetails(){
                                     <input type="number" name="phone" id="" 
                                     onChange={handleChange}
                                     />
+                                    
                                 </div>
                             </div>
                             <div className="flex">
@@ -128,15 +130,7 @@ function PersonalDetails(){
                             </div>
                             <button style={{marginTop: "50px"}} type="submit" className='continue'>Continue</button>
                             {/* <button  type="submit">submit</button> */}
-                            <InputField
-                                name='FirstName'
-                                control={control}
-                                label="FirstName"
-                                type='text'
-                                error={errors.FirstName?.message}
-                                onChange={handleChange}
-                                
-                            />
+                            
                         </div>
         </form>
         </>
