@@ -43,6 +43,9 @@
     .footer{
         padding: 100px 120px;
     }
+    nav{
+        padding: 20px 120px;
+    }
 }
 @media (max-width: 1200px) {
     html{
@@ -68,6 +71,9 @@
     }
     .footer{
         padding: 100px 100px;
+    }
+    nav{
+        padding: 20px 100px;
     }
 }
 @media (max-width: 1100px) {
@@ -117,6 +123,9 @@
     .footer{
         padding: 100px 80px;
     }
+    nav{
+        padding: 20px 80px;
+    }
 }
 @media(max-width: 1050px){
     .temp-grid img{
@@ -163,7 +172,7 @@
     background-color: rgba(128, 128, 128, 0.175);
     }
     .see-temp{
-        padding: 250px 70px 70px;
+        padding: 200px 70px 70px;
     }
     .temp-grid img{
         height: 330px;
@@ -172,10 +181,13 @@
         padding: 50px 70px;
     }
     .start-now{
-        padding: 100px 70px;
+        padding: 70px 70px;
     }
     .footer{
         padding: 100px 70px;
+    }
+    nav{
+        padding: 20px 70px;
     }
 
 }
@@ -282,16 +294,19 @@
         width: 72%;
     }
     .see-temp{
-        padding: 250px 50px 70px;
+        padding: 150px 50px 70px;
     }
     .how-to{
         padding: 50px 50px;
     }
     .start-now{
-        padding: 100px 50px;
+        padding: 70px 50px;
     }
     .footer{
-        padding: 100px 50px;
+        padding: 80px 50px;
+    }
+    nav{
+        padding: 20px 50px;
     }
 }
 @media(max-width: 650px){
@@ -299,17 +314,17 @@
     .temp-grid img{
         height: 300px;
     }
-    .info h1{
+    /* .info h1{
         font-size: 25px;
         line-height: 50px;
-    }
+    } */
     .inner-div{
         padding: 30px;
     }
 }
 @media(max-width: 600px){
     .info h1{
-        font-size: 30px;
+        font-size: 40px;
         line-height: 50px;
     }
     .info p{
@@ -382,7 +397,7 @@
         padding: 0px 10px 0px;
     } */
     .see-temp{
-        padding: 250px 10px 70px;
+        padding: 150px 10px 70px;
     }
     .temp-grid{
         padding: 0px 40px 0px;
@@ -402,10 +417,22 @@
         padding: 50px 20px;
     }
     .start-now{
-        padding: 100px 20px;
+        padding: 50px 20px;
     }
     .footer{
-        padding: 100px 20px;
+        padding: 60px 20px;
+    }
+    nav{
+        padding: 20px 20px;
+    }
+    nav .links{
+        gap: 20px;
+    }
+    nav .links a{
+        font-size: 14px;
+    }
+    nav .logo img{
+        height: 28px;
     }
 }
 @media(max-width: 450px){
@@ -430,6 +457,10 @@
     border-radius: 100%;
     background-color: rgba(128, 128, 128, 0.175);
     filter: blur(10px);
+    }
+    .info h1{
+        font-size: 38px;
+        line-height: 50px;
     }
     .temp-grid img{
         height: 400px;
@@ -489,11 +520,8 @@
         
     }
     
-    /* .temp-grid img{
-        height: 350px;
-    } */
 }
-@media(max-width: 361px){
+@media(max-width: 363px){
     .info h1{
         font-size: 30px;
         line-height: 40px;
@@ -518,6 +546,10 @@
         display: flex;
         align-items: center;
         text-align: center;
+    }
+    .pic .shadow{
+        height: 270px;
+    
     }
 }
 @media(max-width: 310px){

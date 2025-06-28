@@ -1,7 +1,6 @@
 .con-temp{
     width: 100%;
     display: flex;
-    
     position: relative;
     background-color: #212d59;
 }
@@ -137,6 +136,7 @@
     /* background-color: #F5F5F5; */
     background-color: #f8f8f8;
     border: 1px solid grey;
+    
 }
 .name input:focus{
     /* border: none;
@@ -145,7 +145,7 @@
 }
 .name .errorMsg{
     color: red;
-    font-size: 14px;
+    font-size: 13px;
 }
 .photo{
     width: 30%;
@@ -243,7 +243,10 @@ select{
 }
 option{
     background-color: white;
-    padding: 100px;
+    border-radius: 5px;
+}
+select option:checked{
+    background-color: white;
 }
 .roles{
     display: flex;
@@ -274,7 +277,7 @@ option{
     background-color: rgb(72, 105, 226);
 }
 .addex{
-    padding: 10px 50px;
+    padding: 10px 40px;
     border-radius: 30px;
     width: fit-content;
     color: black;
@@ -283,6 +286,10 @@ option{
     background-color: inherit;
     font-size: 16px;
     height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 .add-skills{
     padding: 10px 50px;

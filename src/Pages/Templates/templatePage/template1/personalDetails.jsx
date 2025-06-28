@@ -3,59 +3,77 @@ import { Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormContext } from '../../../../contexts/FormContext'
+
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import InputField from '../../../../components/InputField'
 import { detailsSchema } from '../../../../validations/formDataSchema'
 
+
 function PersonalDetails(){
 
     const {updateForm, formData} = useContext(FormContext);
 
-    // const [data, setData] = useState({
-    //     f_name: "",
-    //     l_name: "",
-    //     phone: 0,
-    //     email: "",
-    //     address: "",
-    // });
-
-    //Initialize  schema validation
-    const {
-    control,
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-    } = useForm({
-        // mode: 'onSubmit',
-        // reValidateMode: 'onSubmit',
-      resolver: yupResolver(detailsSchema),
-    });
-
-    // const watchedValues = watch();
-
-    // useEffect(() =>{
-    //     updateForm('personalDetails', watchedValues);
-    // },[watchedValues])
 
     const navigate = useNavigate();
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
         updateForm('personalDetails', {[name] : value});
-        reset()
+
+        if (formErrors[name]) {
+            setFormErrors((prev) => ({ ...prev, [name]: "" }));
+        }
     }
 
-    const onSubmit = (e) =>{
+    const [formErrors, setFormErrors] = useState({})
+
+    const validate = () =>{
+        const errors = {}
+        const firstName = formData.personalDetails.f_name
+        const lastName = formData.personalDetails.l_name
+        const Email = formData.personalDetails.email
+
+        if (firstName == undefined) {
+            errors.f_name = "First Name is required";
+        }else if(!firstName.trim()){
+            errors.f_name = "First Name is required";
+        }
+        if (lastName == undefined) {
+            errors.l_name = "Last Name is required";
+        }else if(!lastName.trim()){
+            errors.l_name = "Last Name is required";
+        }
+        if (Email == undefined) {
+            errors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
+            errors.email = "Email is invalid";
+        }else if(!Email.trim()){
+            errors.email = "Email is required";
+        }
+        setFormErrors(errors)
+
+        return Object.keys(errors).length === 0;
+        
+
+    }
+
+    const handleSubmit = (e) =>{
         e.preventDefault();
-        navigate('/resumeData/experience')
+        if(validate()){
+            navigate('/resumeData/experience')
+            console.log('personal details filled')
+            
+        }else{
+            console.log(formErrors)
+        }
+
     }
 
 
     return(
         <>
-        <form className="first-part" onSubmit={onSubmit}>
+        <form className="first-part" onSubmit={handleSubmit}>
                         <div className="header">
                           <h1>Enter your Personal Details</h1>
                           <p>Include your full name and ways for employers to reach you</p>
@@ -78,11 +96,9 @@ function PersonalDetails(){
                                     </label>
                                     <input type="text" name="f_name"
                                      onChange={handleChange}
-                                    //  {...register('f_name',
-                                    //     {required: "This field is required"}
-                                    //  )}
+                                    
                                      />
-                                    {errors.FirstName && <p className='errorMsg'>{errors.FirstName?.message}!</p> }
+                                    {formErrors.f_name && <p className='errorMsg'>{formErrors.f_name}!</p> }
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">
@@ -90,11 +106,10 @@ function PersonalDetails(){
                                     </label>
                                     <input type="text" name="l_name"
                                      onChange={handleChange}
-                                    //  {...register('l_name',
-                                    //     {required: "This field is required"}
-                                    //  )}
+                                    
                                     />
-                                    {errors.l_name ? <p className='errorMsg'>{errors.l_name?.message}!</p> : ""}
+                                    {formErrors.l_name && <p className='errorMsg'>{formErrors.l_name}!</p> }
+
                                 </div>
                             </div>
                             <div className="flex">
@@ -105,14 +120,14 @@ function PersonalDetails(){
                                     <input type="email" name="email" id="" 
                                     onChange={handleChange}
                                     />
-                                    {errors.email ? <p className='errorMsg'>{errors.email?.message}!</p> : ""}
+                                    {formErrors.email && <p className='errorMsg'>{formErrors.email}!</p> }
                                 </div>
                                 <div className="name">
                                     <label htmlFor="phone">
                                         PHONE
                                     </label>
                                     <input type="number" name="phone" id="" 
-                                    onChange={handleChange}
+                                     onChange={handleChange}
                                     />
                                     
                                 </div>
@@ -128,7 +143,7 @@ function PersonalDetails(){
                                 </div>
                                 
                             </div>
-                            <button style={{marginTop: "50px"}} type="submit" className='continue'>Continue</button>
+                            <button style={{marginTop: "50px"}} type='submit' className='continue'>Continue</button>
                             {/* <button  type="submit">submit</button> */}
                             
                         </div>
