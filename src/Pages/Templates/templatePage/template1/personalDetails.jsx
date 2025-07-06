@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormContext } from '../../../../contexts/FormContext'
-
 import { useNavigate } from 'react-router-dom'
-import { yupResolver } from '@hookform/resolvers/yup'
-import InputField from '../../../../components/InputField'
-import { detailsSchema } from '../../../../validations/formDataSchema'
-
+import { useSteps } from '../../../../contexts/completeSteps'
 
 function PersonalDetails(){
 
+    const {setCompleted, completed} = useSteps();
     const {updateForm, formData} = useContext(FormContext);
+    // const [isCompleted, setIsCompleted] = useState({})
+    // localStorage.setItem('completed', JSON.stringify(isCompleted))
 
 
     const navigate = useNavigate();
@@ -64,6 +63,9 @@ function PersonalDetails(){
             navigate('/resumeData/experience')
             console.log('personal details filled')
             
+            setCompleted(prev => ({...prev, step1: 'completed'}))
+            console.log(completed)
+            // localStorage.setItem('completed', JSON.stringify(isCompleted))
         }else{
             console.log(formErrors)
         }

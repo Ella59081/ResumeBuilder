@@ -3,11 +3,12 @@ import { useState, useContext } from 'react';
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react';
+import { useSteps } from '../../../../contexts/completeSteps';
 
 function Experience2(){
 
         const {updateForm, formData} = useContext(FormContext);
-    
+        const { setCompleted, completed} = useSteps()
     
         const navigate = useNavigate();
     
@@ -74,7 +75,8 @@ function Experience2(){
             if(validate()){
                 navigate('/resumeData/education')
                 console.log('2nd experience filled')
-
+                setCompleted(prev => ({...prev, step2: 'completed'}))
+                console.log(completed)
             }else{
                 console.log(formErrors)
             }
@@ -94,6 +96,8 @@ function Experience2(){
 
         }
     }
+
+    const startDate = formData.experience2.start_date
 
     return (
         <>
@@ -152,7 +156,7 @@ function Experience2(){
                                     <label htmlFor="end">
                                         END DATE
                                     </label>
-                                    <input type="date" name="end_date" id="" 
+                                    <input type="date" name="end_date" id="" disabled={!startDate}
                                      onChange={handleChange}/>
                                     {formErrors.endDate && <p className='errorMsg'>{formErrors.endDate}!</p> }
                                     

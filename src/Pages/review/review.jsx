@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import ResumeDownload from '../../components/downloadResumeBtn'
 import { useContext, useState } from 'react'
 import { FormContext } from '../../contexts/FormContext'
+import { Phone } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
 
 
 function Review(){
@@ -31,12 +34,12 @@ function Review(){
                                 </div>
                                 <div className="revsummary">
                                     <div className="revleft">
-                                        <div className="revprof">
+                                        <div style={{flexWrap: 'wrap'} } className="revprof">
                                             <Link to='/resumeData/summary' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>PROFESSIONAL SUMMARY</h6>
-                                            <p className='top'>
-                                               {
-                                                   formData.summary.professionalSummary ? formData.summary.professionalSummary :
+                                            <p style={{flexWrap: 'wrap', contain: 'size', objectFit:'contain'}}  className='top'>
+                                                {
+                                                  formData.summary.professionalSummary ? formData.summary.professionalSummary :
                                                    ""
                                                 }
                                             </p>
@@ -125,21 +128,21 @@ function Review(){
                                             {
                                                 formData.personalDetails.phone ? 
                                                 <p className='top'>
-                                                  <img src="/src/assets/images/phone-solid.svg" alt="" />
+                                                  <Phone size={16} transform='rotateX(369deg)'/>
                                                   <p>{formData.personalDetails.phone}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.email ? 
                                                 <p className='top'>
-                                                  <img src="/src/assets/images/envelope-solid.svg" alt="" />
+                                                  <Mail size={16}/>
                                                   <p>{formData.personalDetails.email}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.address ? 
                                                 <p className='top'>
-                                                  <img src="/src/assets/images/location-dot-solid.svg" alt="" />
+                                                  <MapPinIcon size={16}/>
                                                   <p>{formData.personalDetails.address}</p>
                                                 </p> : 
                                                 <p></p>

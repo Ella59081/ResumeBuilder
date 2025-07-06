@@ -4,11 +4,12 @@ import { useState, useContext } from 'react';
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react';
+import { useSteps } from '../../../../contexts/completeSteps';
 
 function Experience(){
 
     const {updateForm, formData} = useContext(FormContext);
-
+    const { setCompleted, completed} = useSteps()
 
     const navigate = useNavigate();
 
@@ -65,6 +66,8 @@ function Experience(){
         if(validate()){
             navigate('/resumeData/education')
             console.log('experience filled')
+            setCompleted(prev => ({...prev, step2: 'completed'}))
+            console.log(completed)
 
         }else{
             console.log(formErrors)
@@ -83,8 +86,6 @@ function Experience(){
 
         }else{
             console.log(formErrors)
-            
-
         }
     }
     return (

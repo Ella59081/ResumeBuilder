@@ -32,6 +32,9 @@
     color: white;
     border: 3px solid white;
 }
+.com{
+    background-color: rgb(75, 188, 75);
+}
 .detForm{
     width: 63%;
 }
@@ -111,16 +114,13 @@
 }
 .delete{
     background-color: white;
-    border: 1px solid black;
-    border-radius: 100%;
+    border: none;
+    /* border-radius: 100%;
     height: 25px;
-    width: 25px;
+    width: 25px; */
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.delete img{
-    height: 15px;
 }
 .name label{
     font-size: 12px;
@@ -229,7 +229,7 @@
 }
 select{
     width: 100%;
-    padding: 13px 13px;
+    padding: 13px;
     border-radius: 5px;
     border: none;
     font-size: 15px;
@@ -292,7 +292,7 @@ select option:checked{
     gap: 10px;
 }
 .add-skills{
-    padding: 10px 50px;
+    padding: 10px 40px;
     border-radius: 30px;
     width: fit-content;
     color: black;
@@ -302,6 +302,10 @@ select option:checked{
     font-size: 16px;
     height: fit-content;
     margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 textarea{
     padding: 10px 13px;

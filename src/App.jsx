@@ -16,6 +16,7 @@ import Overview from './Pages/overview/overview'
 import { FormContext, FormProvider } from './contexts/FormContext'
 import Experience2 from './Pages/Templates/templatePage/template1/experience2'
 import Experience3 from './Pages/Templates/templatePage/template1/experience3'
+import { StepsProvider } from './contexts/completeSteps'
 // import { FormContext } from './contexts/FormContext'
 
 
@@ -28,11 +29,13 @@ function App() {
 
     <TemplateContext>
       <FormProvider>
+        <StepsProvider>
         
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/templates' element={<Templates/>}/>
+        
         <Route path='/resumeData' element={<Template1/>}>
           <Route path='/resumeData' element={<PersonalDetails/>}/>
           <Route path='/resumeData/experience' element={<Experience/>}/>
@@ -42,8 +45,10 @@ function App() {
           <Route path='/resumeData/skills' element={<Skills/>}/>
           <Route path='/resumeData/summary' element={<Summary/>}/>
         </Route>
+        
         <Route path='/review' element={<Review/>}/>
       </Routes>
+      </StepsProvider>
       </FormProvider>
       </TemplateContext>
     </>

@@ -3,26 +3,24 @@ import { useContext, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { FormContext } from '../../../../contexts/FormContext'
 import Overview from '../../../overview/overview'
-import CloseButton from '../../../../components/closeButton'
+import { useSteps } from '../../../../contexts/completeSteps'
+import { Check } from 'lucide-react'
+import { Phone } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
+import { File } from 'lucide-react'
 
 
 function Template1() {
 
-    const closeButton = ()=>{
-        return ( 
-        <>
-        <button>
-            closedX
-        </button>
-        
-        </>
-        )
-    }
 
     const {formData} = useContext(FormContext);
 
-    // const ContinueButton = (padding, text, backgroundColor, borderRaduis, width) =>{
-    // }
+    // console.log(formData)
+
+    // const formData = JSON.parse(localStorage.getItem('formData'))
+
+    const {steps, completed} = useSteps();
 
     const [isClicked, setIsClicked] = useState(false)
 
@@ -34,26 +32,64 @@ function Template1() {
         setIsClicked(false)
     }
 
+
+    // console.log(typeof(completed))
     return(
         <>
           <div className='con-temp'>
                 <div className="side">
-                 <img src="/src/assets/images/file-solid (2).svg" alt="" />
-                 <div style={{marginTop: "30px"}} className="sect">
-                    <span>1</span>
-                 </div>
-                 <div className="sect">
-                    <span>2</span>
-                 </div>
-                 <div className="sect">
-                    <span>3</span>
-                 </div>
-                 <div className="sect">
-                    <span>4</span>
-                 </div>
-                 <div className="sect">
-                    <span>5</span>
-                 </div>
+                    <img style={{marginBottom: "30px"}} src="/src/assets/images/file-solid (2).svg" alt="" />
+                    {/* {
+                        steps.map((step, index) =>(
+                            completed.$[step] ? 
+                            <div>YES I HAVE BEEN COMPLTED</div> :
+                            <div key={index} className="sect">
+                                <span>{index + 1}</span>
+                                
+                            </div>
+                        ))
+                    } */}
+
+                    {completed.step1  === "completed" ? 
+                        <div className='sect com'>
+                            <Check size={18}/>
+                        </div> : 
+                        <div className="sect">
+                            <span>1</span>
+                        </div>
+                    }
+                    {completed.step2  === "completed" ? 
+                        <div className='sect com'>
+                            <Check size={18}/>
+                        </div> : 
+                        <div  className="sect">
+                            <span>2</span>
+                        </div>
+                    }
+                    {completed.step3  === "completed" ? 
+                        <div className='sect com'>
+                            <Check size={18}/>
+                        </div> : 
+                        <div  className="sect">
+                            <span>3</span>
+                        </div>
+                    }
+                    {completed.step4  === "completed" ? 
+                        <div className='sect com'>
+                            <Check size={18}/>
+                        </div> : 
+                        <div  className="sect">
+                            <span>4</span>
+                        </div>
+                    }
+                    {completed.step5  === "completed" ? 
+                        <div className='sect com'>
+                            <Check size={18}/>
+                        </div> : 
+                        <div  className="sect">
+                            <span>5</span>
+                        </div>
+                    }
                 </div>
                 <div className="main-temp">
                     <section className="detForm">
@@ -152,22 +188,22 @@ function Template1() {
                                         <div className="contact">
                                             <h6>CONTACT</h6>
                                             <p className='top'>
-                                                <img src="/src/assets/images/phone-solid.svg" alt="" />
+                                                <Phone size={10}/>
                                                 {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                             </p>
                                             <p>
-                                                <img src="/src/assets/images/envelope-solid.svg" alt="" /> 
+                                                {/* <img src="/src/assets/images/envelope-solid.svg" alt="" />  */}<Mail size={10}/>
                                                 {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                             </p>
                                             <p>
-                                                <img src="/src/assets/images/location-dot-solid.svg" alt="" />
+                                                {/* <img src="/src/assets/images/location-dot-solid.svg" alt="" /> */} <MapPinIcon size={10}/>
                                                 {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                             </p>
                                         </div>
                                         <div className="skills">
                                             <h6>SKILLS</h6>
                                             {
-                                                formData.skills.skill1 ?
+                                                Object.keys(formData.skills).length !== 0 ?
                                                 Object.keys(formData.skills).map((key) =>(
                                                     <p key={key}>. {formData.skills[key]}</p>
                                                 ))

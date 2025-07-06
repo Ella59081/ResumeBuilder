@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { useState, useContext } from 'react';
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
-
+import { useSteps } from '../../../../contexts/completeSteps';
 
 function Experience3(){
 
     const {updateForm, formData} = useContext(FormContext);
-        
-        
+    const { setCompleted, completed} = useSteps();
+      
     const navigate = useNavigate();
         
         const handleChange = (e) =>{
@@ -74,11 +74,16 @@ function Experience3(){
             if(validate()){
                 navigate('/resumeData/education')
                 console.log('3rd experience filled')
+                setCompleted(prev => ({...prev, step2: 'completed'}))
+                console.log(completed)
 
             }else{
                 console.log(formErrors)
             }
         }
+
+    const startDate = formData.experience2.start_date
+
 
     return (
         <>
@@ -137,7 +142,7 @@ function Experience3(){
                                     <label htmlFor="start">
                                         END DATE
                                     </label>
-                                    <input type="date" name="end_date" id="" 
+                                    <input type="date" name="end_date" id="" disabled={!startDate}
                                      onChange={handleChange}/>
                                     {formErrors.endDate && <p className='errorMsg'>{formErrors.endDate}!</p> }
                                     

@@ -2,12 +2,12 @@ import './template1.css'
 import { useState, useEffect, useContext } from 'react';
 import { FormContext } from '../../../../contexts/FormContext'
 import { useNavigate } from 'react-router-dom'
-
+import { useSteps } from '../../../../contexts/completeSteps';
 
 function Education(){
 
         const {updateForm, formData} = useContext(FormContext);
-            
+        const { setCompleted, completed} = useSteps();
             
         const navigate = useNavigate();
             
@@ -92,6 +92,8 @@ function Education(){
             if(validate()){
                 navigate('/resumeData/skills')
                 console.log('education filled')
+                setCompleted(prev => ({...prev, step3: 'completed'}))
+                console.log(completed)
 
             }else{
                 console.log(formErrors)
@@ -164,9 +166,19 @@ function Education(){
                                         DEGREE
                                     </label>
                                     <select name='degree' onChange={handleChange}>
-                                        <option disabled selected>select</option>
+                                        <option disabled selected hidden>Select a degree</option>
                                         <option>High School Diploma</option>
-                                        <option>bachelor of science</option>
+                                        <option>Associate of Arts</option>
+                                        <option>Associate of Science</option>
+                                        <option>Bachelor of Arts</option>  
+                                        <option>Bachelor of Science</option>
+                                        <option>BBA</option>
+                                        <option>Master of Arts</option>
+                                        <option>Master of Science</option>
+                                        <option>MBA</option>
+                                        <option>M.D.</option>
+                                        <option>Ph.D.</option>
+                                        <option>Master of Science</option>
                                     </select>
                                     {formErrors.degree && <p className='errorMsg'>{formErrors.degree}!</p> }
                                 </div>
