@@ -6,6 +6,9 @@ import { FormContext } from '../../contexts/FormContext'
 import { Phone } from 'lucide-react'
 import { Mail } from 'lucide-react'
 import { MapPinIcon } from 'lucide-react'
+import { useTemplate } from '../../contexts/provideTemplate'
+import Header from '../../components/Header/header.jsx'
+
 
 
 function Review(){
@@ -17,34 +20,37 @@ function Review(){
     const skillsLength = Object.keys(formData.skills).length !== 0
     const educationLength = Object.keys(formData.education).length !== 0
 
+    const {templates, setPickTemplate, pickTemplate} = useTemplate()
+
     return(
         <>
+            <Header/>
             <div className="rev-con">
                 <div className="revphoto">
                         <div className="revtemp-des">
-                            <div className="revside-in"></div>
-                            <div className="revmain-in">
-                                <div className="revheader-in">
+                            <div className="revside-in" style={{backgroundColor: pickTemplate?.style.conColor}}></div>
+                            <div className="revmain-in" >
+                                <div className="revheader-in" >
                                     <Link to='/resumeData' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
-                                    <h6>
+                                    <h6 className='yName'>
                                         <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'YOUR '}</span>
                                         <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'NAME'}</span>
                                     </h6>
-                                    <p>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : ''}</p>
+                                    <p style={{color:pickTemplate?.style.conColor, fontSize: '17px'}}>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : ''}</p>
                                 </div>
                                 <div className="revsummary">
                                     <div className="revleft">
-                                        <div style={{flexWrap: 'wrap'} } className="revprof">
+                                        { Object.keys(formData.summary).length !== 0 && <div className="revprof">
                                             <Link to='/resumeData/summary' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
                                             <h6>PROFESSIONAL SUMMARY</h6>
-                                            <p style={{flexWrap: 'wrap', contain: 'size', objectFit:'contain'}}  className='top'>
+                                            <p  className='top'>
                                                 {
                                                   formData.summary.professionalSummary ? formData.summary.professionalSummary :
                                                    ""
                                                 }
                                             </p>
-                                        </div>
-                                        <div className="revwork">
+                                        </div>}
+                                        { experienceLength && <div className="revwork">
                                             <Link to='/resumeData/experience' className="edit"><img src="/src/assets/images/pen-solid (2).svg" alt=""/></Link>
                                             <h6>WORK HISTORY</h6>
                                             <h6 className='top'>{formData.experience.title1 ? formData.experience.title1 : ''}</h6>
@@ -61,7 +67,7 @@ function Review(){
                                             </p>
                                             <p>{formData.experience.role2 ? '.' + ' ' + formData.experience.role2 : ''}</p>
                                             <p>{formData.experience.role3 ? '.' + ' ' + formData.experience.role3 : ''}</p>
-                                        </div>
+                                        </div>}
                                         {
                                             experience2Length ?
                                         <div className="revtitle2">
@@ -122,33 +128,35 @@ function Review(){
                                         }
                                     </div>
                                     <div className="revright">
-                                        <div className="revcontact">
+                                        { formData.personalDetails.phone || formData.personalDetails.email
+                                          || formData.personalDetails.email ?
+                                        <div className="revcontact" style={{backgroundColor: pickTemplate?.style.conColor}}>
                                             <Link to='/resumeData' className="edit closer"><img src="/src/assets/images/pen-solid (2).svg" alt="" /></Link>
-                                            <h6>CONTACT</h6>
+                                            <h6>CONTACT </h6>
                                             {
                                                 formData.personalDetails.phone ? 
                                                 <p className='top'>
-                                                  <Phone size={16} transform='rotateX(369deg)'/>
+                                                  <Phone size={18} style={{transform: 'rotateY(180deg)'}}/>
                                                   <p>{formData.personalDetails.phone}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.email ? 
                                                 <p className='top'>
-                                                  <Mail size={16}/>
+                                                  <Mail size={18} style={{minWidth:'18px'}}/>
                                                   <p>{formData.personalDetails.email}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.address ? 
                                                 <p className='top'>
-                                                  <MapPinIcon size={16}/>
+                                                  <MapPinIcon size={18}/>
                                                   <p>{formData.personalDetails.address}</p>
                                                 </p> : 
                                                 <p></p>
                                             }
                                             
-                                        </div>
+                                        </div>: ''}
                                         {
                                             skillsLength ? 
                                         <div className="revskills">
@@ -225,7 +233,17 @@ function Review(){
                     </div>
                     <div className="temp-rev">
                         <h4>Preview templates</h4>
+                        
                         <div className="temps-grid">
+                            {
+                                templates.map((template, index) =>(
+                                    <div 
+                                        className="template" 
+                                        key={index} onClick={ () => setPickTemplate(template)}>
+                                        <img src={template.style.image} alt=""/>
+                                    </div>
+                                ))
+                            } 
                             <Link to="/resumeData" className="template" id="temp-1">
                                 <img src="/src/assets/images/template(1).svg" alt="" />
                             </Link>

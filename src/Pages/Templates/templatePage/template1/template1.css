@@ -1,16 +1,32 @@
+@font-face{
+    font-family: inter;
+    src: url('/src/assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
+}
+@font-face{
+    font-family: poppins;
+    src: url('/src/assets/fonts/Montserrat-Regular.ttf');
+}
+.con{
+    font-family: inter;
+}
+textarea{
+    font-family: inter;
+}
 .con-temp{
     width: 100%;
     display: flex;
     position: relative;
     background-color: #212d59;
+    font-family: inter;
 }
 .main-temp{
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 100px 60px;
+    padding: 50px 80px 50px;
     background-color: white;
+    font-family: inter;
 }
 .side{
     display: flex;
@@ -36,7 +52,7 @@
     background-color: rgb(75, 188, 75);
 }
 .detForm{
-    width: 63%;
+    width: 60%;
 }
 .first-part{
     width: 100%;
@@ -61,6 +77,9 @@
     display: flex;
     gap: 30px;
     padding-top: 30px;
+}
+button{
+    font-family: inter;
 }
 .inimg{
     padding: 60px;
@@ -98,7 +117,6 @@
     display: flex;
     gap: 30px;
     width: 100%;
-    /* justify-content: space-between; */
 }
 .name{
     display: flex;
@@ -129,14 +147,14 @@
     width: 100%;
     padding: 13px 13px;
     border-radius: 5px;
-    
     border: none;
     font-size: 15px;
     /* background-color: rgba(204, 196, 196, 0.942); */
     /* background-color: #F5F5F5; */
     background-color: #f8f8f8;
     border: 1px solid grey;
-    
+    font-family: inter;
+    /* overflow: clip;     */
 }
 .name input:focus{
     /* border: none;
@@ -146,10 +164,21 @@
 .name .errorMsg{
     color: red;
     font-size: 13px;
+    
+}
+.default{
+    width: 200px;
+    padding: 30px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: relative;
+    z-index: 20;
+    top: -20px;
+    right: 30px;
 }
 .photo{
-    width: 30%;
-    object-fit: contain;
+    width: 33%;
+    font-family: poppins;
 }
 .temp-des{
     display: flex;
@@ -159,14 +188,18 @@
     border: 1px solid black;
     position: relative;
     bottom: 20px;
-    object-fit: contain;
+
 }
 .temp-des p{
-    font-size: 8.5px;
+    font-size: 9px;
+}
+.temp-des .yName{
+    font-size: 17px;
 }
 .temp-des h6{
-    font-size: 10px;
+    font-size: 11px;
 }
+
 .side-in{
     padding: 10px;
     background-color: rgb(138, 212, 255);
@@ -177,8 +210,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-    padding: 20px;
-    object-fit: contain;
+    padding: 30px 20px 60px;
 }
 .header-in{
     display: flex;
@@ -194,6 +226,8 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    flex: 1;
+    overflow: hidden;
     max-width: 60%;
     
 }
@@ -202,6 +236,10 @@
     flex-direction: column;
     gap: 15px;
     max-width: 40%;
+    flex: 1;
+    object-fit: contain;
+    overflow: hidden;
+    
 }
 .contact{
     background-color: rgb(138, 212, 255);

@@ -9,16 +9,15 @@ import { Phone } from 'lucide-react'
 import { Mail } from 'lucide-react'
 import { MapPinIcon } from 'lucide-react'
 import { File } from 'lucide-react'
+import { useTemplate } from '../../../../contexts/provideTemplate'
 
 
 function Template1() {
 
 
     const {formData} = useContext(FormContext);
-
-    // console.log(formData)
-
-    // const formData = JSON.parse(localStorage.getItem('formData'))
+    const {pickTemplate, noTemplate} = useTemplate()
+    console.log(noTemplate);
 
     const {steps, completed} = useSteps();
 
@@ -32,6 +31,10 @@ function Template1() {
         setIsClicked(false)
     }
 
+    const [closeDefault, setCloseDefault] = useState(false)
+    // setTimeout(() => {  
+    //     setCloseDefault(true)
+    // }, 5000)
 
     // console.log(typeof(completed))
     return(
@@ -39,72 +42,40 @@ function Template1() {
           <div className='con-temp'>
                 <div className="side">
                     <img style={{marginBottom: "30px"}} src="/src/assets/images/file-solid (2).svg" alt="" />
-                    {/* {
+                    {
                         steps.map((step, index) =>(
-                            completed.$[step] ? 
-                            <div>YES I HAVE BEEN COMPLTED</div> :
-                            <div key={index} className="sect">
-                                <span>{index + 1}</span>
-                                
+                            completed[step] ? 
+                            <div className='sect com'>
+                                <Check size={18}/>
+                            </div> : 
+                            <div className="sect">
+                                <span>{index+ 1}</span>
                             </div>
                         ))
-                    } */}
-
-                    {completed.step1  === "completed" ? 
-                        <div className='sect com'>
-                            <Check size={18}/>
-                        </div> : 
-                        <div className="sect">
-                            <span>1</span>
-                        </div>
-                    }
-                    {completed.step2  === "completed" ? 
-                        <div className='sect com'>
-                            <Check size={18}/>
-                        </div> : 
-                        <div  className="sect">
-                            <span>2</span>
-                        </div>
-                    }
-                    {completed.step3  === "completed" ? 
-                        <div className='sect com'>
-                            <Check size={18}/>
-                        </div> : 
-                        <div  className="sect">
-                            <span>3</span>
-                        </div>
-                    }
-                    {completed.step4  === "completed" ? 
-                        <div className='sect com'>
-                            <Check size={18}/>
-                        </div> : 
-                        <div  className="sect">
-                            <span>4</span>
-                        </div>
-                    }
-                    {completed.step5  === "completed" ? 
-                        <div className='sect com'>
-                            <Check size={18}/>
-                        </div> : 
-                        <div  className="sect">
-                            <span>5</span>
-                        </div>
                     }
                 </div>
                 <div className="main-temp">
                     <section className="detForm">
                         <Outlet />
                     </section>
+                    
+                    
                     <div onClick={openOverview} className="photo">
+                        {
+                     noTemplate == true && closeDefault == false &&
+                     <div className='default'>
+                            Here we've given you a temporary template
+                      </div>
+                    }
                         <div className="temp-des">
-                            <div className="side-in"></div>
+                            <div className="side-in" style={{backgroundColor: pickTemplate?.style.sideColor}}></div>
                             <div className="main-in">
                                 <div className="header-in">
-                                    <h6>
+                                    <h6 className='yName'>
                                         <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'JEREMY' + "  "}</span>
                                         <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'FISHER'}</span>
                                     </h6>
-                                    <p>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : 'KNOWLEDGEABLE SOCIAL MEDIA MANAGER'}</p>
+                                    <p style={{color:pickTemplate?.style.conColor, fontSize: '11px'}}>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : 'KNOWLEDGEABLE SOCIAL MEDIA MANAGER'}</p>
                                 </div>
                                 <div className="summary">
                                     <div className="left">
@@ -185,18 +156,18 @@ function Template1() {
                                         
                                     </div>
                                     <div className="right">
-                                        <div className="contact">
+                                        <div className="contact" style={{backgroundColor: pickTemplate?.style.conColor}}>
                                             <h6>CONTACT</h6>
                                             <p className='top'>
-                                                <Phone size={10}/>
+                                                <Phone size={10} style={{transform: 'rotateY(180deg)'}}/>
                                                 {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                             </p>
                                             <p>
-                                                {/* <img src="/src/assets/images/envelope-solid.svg" alt="" />  */}<Mail size={10}/>
+                                                <Mail size={10} style={{minWidth:'10px'}}/>
                                                 {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                             </p>
                                             <p>
-                                                {/* <img src="/src/assets/images/location-dot-solid.svg" alt="" /> */} <MapPinIcon size={10}/>
+                                                <MapPinIcon size={10}/>
                                                 {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                             </p>
                                         </div>
@@ -262,14 +233,6 @@ function Template1() {
                 </div>
                 {
                     isClicked === true && 
-                    // <div className="overview">
-                    //     <div className="viewResume">
-                    //         <h1>A basic review of your template</h1>
-                    //         <h2>Exit this page: </h2>
-                    //         <button onClick={closeOverview}>X</button>
-                    //     </div>
-                    // </div>
-
                     <div className='overview'>
                         <div className='removeOv'>
                             <button className='exit' onClick={closeOverview}>
@@ -277,12 +240,8 @@ function Template1() {
                             </button>
                         </div>
                         <Overview/>
-                    </div>
-                    
-                    
-                    
-                }
-                
+                    </div> 
+                }              
           </div>
         </>
     )

@@ -1,40 +1,39 @@
 import './template.css'
 import { Link } from 'react-router-dom'
+import { useTemplate } from '../../contexts/provideTemplate'
 function Templates(){
+
+    const {templates, setPickTemplate, setNoTemplate} = useTemplate()
+    // console.log(templates[0].template1.image)
     return(
+        
         <>
          <div className="con">
             <div className="main">
                 <div className="header">
                     <h1>Choose your desired template</h1>
-                    <a className='later' href="">Choose template later</a>
+                    <Link onClick={ ()=> {
+                        setPickTemplate(templates[0])
+                        setNoTemplate(true)
+                    }}
+                        to="/resumeData" className='later'>
+                        Choose template later
+                    </Link>
                 </div>
 
                 <div className="template-grid">
-                    <Link to="/resumeData" className="template" id="temp-1">
-                        <img src="/src/assets/images/template(1).svg" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </Link>
-                    <div className="template" id="temp-2">
-                        <img src="/src/assets/images/template(2).svg" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </div>
-                    <div className="template" id="temp-3">
-                        <img src="/src/assets/images/template(3).svg" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </div>
-                    <div className="template" id="temp-4">
-                        <img src="/src/assets/images/template(4).svg" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </div>
-                    <div className="template" id="temp-5">
-                        <img src="/src/assets/images/resume-Template (1).avif" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </div>
-                    <div className="template" id="temp-6">
-                        <img src="/src/assets/images/template(1).svg" alt="" />
-                        <a className='use' href="">Use this template</a>
-                    </div>
+                    {
+                        templates.map((template, index) =>(
+                            <Link to="/resumeData" 
+                              className="template" 
+                              key={index} onClick={()=> {
+                                setPickTemplate(template)
+                                setNoTemplate(false)
+                              }}>
+                                <img src={template.style.image} alt=""/>
+                            </Link>
+                        ))
+                    }                    
                 </div>
             </div>
          </div>

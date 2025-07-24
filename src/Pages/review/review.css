@@ -1,3 +1,11 @@
+@font-face{
+    font-family: poppins;
+    src: url('/src/assets/fonts/Montserrat-Regular.ttf');
+}
+@font-face{
+    font-family: inter;
+    src: url('/src/assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
+}
 .rev-con{
     width: 100%;
     padding: 80px 150px 50px;
@@ -5,19 +13,26 @@
     display: flex;
     gap: 30px;
     align-items: start;
+    font-family: inter;
+    
 }
 .revphoto{
-    width: 50%;
+    width: 53%;
+    font-family: poppins;
+    min-height: 100vh;
 }
 .revtemp-des{
     display: flex;
     background-color: white;
     width: 100%;
     border-radius: 5px;
-    min-height: 90vh;
+    min-height: 100vh;
 }
 .revtemp-des p{
     font-size: 13px;
+}
+.revtemp-des .yName{
+    font-size: 25px;
 }
 .revside-in{
     padding: 15px;
@@ -50,6 +65,7 @@
 .revsummary{
     display: flex;
     gap: 30px;
+    padding-top: 15px;
 }
 .revleft{
     display: flex;
@@ -131,8 +147,10 @@
 .rcertifications:hover .edit{
     visibility: visible;
 }
-.reprof{
+.revprof{
     position: relative;
+    height: auto;
+    
 }
 .revprof:hover{
     background-color: rgba(245, 245, 245, 0.271); 
@@ -206,4 +224,5 @@
 .temps-grid img{
     height: 250px;
 }
+
 

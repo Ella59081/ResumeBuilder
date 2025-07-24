@@ -97,10 +97,10 @@ function PersonalDetails(){
                                         FIRST NAME
                                     </label>
                                     <input type="text" name="f_name"
-                                     onChange={handleChange}
-                                    
+                                     
+                                     onChange={handleChange}                                    
                                      />
-                                    {formErrors.f_name && <p className='errorMsg'>{formErrors.f_name}!</p> }
+                                     {formErrors.f_name && <p className='errorMsg'>{formErrors.f_name}!</p> }
                                 </div>
                                 <div className="name">
                                     <label htmlFor="lastName">

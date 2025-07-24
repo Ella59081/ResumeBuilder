@@ -25,6 +25,12 @@ export function FormProvider({children}){
     //     }
     // })
 
+    // useEffect(()=>{
+    //     window.onload=(e)=>{
+    //         e.preventDefault
+    //     }
+    // })
+
     useEffect(() =>{
         localStorage.setItem("formData", JSON.stringify(formData))
     },[formData])

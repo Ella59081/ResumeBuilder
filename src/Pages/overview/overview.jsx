@@ -1,11 +1,15 @@
 import { useContext, useState } from "react";
 import { FormContext } from "../../contexts/FormContext";
-
+import { useTemplate } from '../../contexts/provideTemplate'
+import { Phone } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
 import './overview.css'
 
 function Overview(){
 
 
+    const {templates, pickTemplate} = useTemplate()
     const {formData} = useContext(FormContext);
 
     return(
@@ -14,14 +18,14 @@ function Overview(){
             <h1>Overview</h1>
             <div className="photo over">
                                     <div className="temp-des">
-                                        <div className="side-in"></div>
+                                        <div className="side-in" style={{backgroundColor: pickTemplate?.style.sideColor}}></div>
                                         <div className="main-in">
                                             <div className="header-in">
-                                                <h6>
+                                                <h6 className='yName'>
                                                     <span>{formData.personalDetails.f_name ? formData.personalDetails.f_name.toUpperCase() + "  " : 'JEREMY' + "  "}</span>
                                                     <span>{formData.personalDetails.l_name ? formData.personalDetails.l_name.toUpperCase() : 'FISHER'}</span>
                                                 </h6>
-                                                <p>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : 'KNOWLEDGEABLE SOCIAL MEDIA MANAGER'}</p>
+                                                <p style={{color:pickTemplate?.style.conColor, fontSize: '16px'}}>{formData.experience.title1 ? formData.experience.title1.toUpperCase() : 'KNOWLEDGEABLE SOCIAL MEDIA MANAGER'}</p>
                                             </div>
                                             <div className="summary">
                                                 <div className="left">
@@ -102,18 +106,18 @@ function Overview(){
                                                     
                                                 </div>
                                                 <div className="right">
-                                                    <div className="contact">
+                                                    <div className="contact" style={{backgroundColor: pickTemplate?.style.conColor}}>
                                                         <h6>CONTACT</h6>
                                                         <p className='top'>
-                                                            <img src="/src/assets/images/phone-solid.svg" alt="" />
+                                                            <Phone size={16} style={{transform: 'rotateY(180deg)'}}/>
                                                             {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                                         </p>
                                                         <p>
-                                                            <img src="/src/assets/images/envelope-solid.svg" alt="" /> 
+                                                            <Mail size={16} style={{minWidth:'10px'}}/>
                                                             {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                                         </p>
                                                         <p>
-                                                            <img src="/src/assets/images/location-dot-solid.svg" alt="" />
+                                                            <MapPinIcon size={16}/>
                                                             {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                                         </p>
                                                     </div>
@@ -183,3 +187,9 @@ function Overview(){
 }
 
 export default Overview
+
+
+
+//Devella01
+//dbUserPassword
+//mongodb+srv://Devella01:<db_password>@cluster0.87wgx9x.mongodb.net/

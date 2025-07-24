@@ -4,7 +4,7 @@ import Header from './components/Header/header'
 import Home from './Pages/Home/Home'
 import Templates from './Pages/Templates/templates'
 import { Routes, Route } from 'react-router-dom'
-import { TemplateContext } from './contexts/provideTemplate'
+import { TemplateProvider } from './contexts/provideTemplate'
 import Template1 from './Pages/Templates/templatePage/template1/template1'
 import PersonalDetails from './Pages/Templates/templatePage/template1/personalDetails'
 import Experience from './Pages/Templates/templatePage/template1/experience'
@@ -27,11 +27,11 @@ function App() {
   return (
     <>
 
-    <TemplateContext>
+    <TemplateProvider>
       <FormProvider>
         <StepsProvider>
         
-      <Header/>
+      
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/templates' element={<Templates/>}/>
@@ -50,7 +50,7 @@ function App() {
       </Routes>
       </StepsProvider>
       </FormProvider>
-      </TemplateContext>
+      </TemplateProvider>
     </>
   )
 }

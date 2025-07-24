@@ -1,16 +1,23 @@
 import React from "react";
+// import phone from '../../src/assets/images/phone-solid.svg'
+
+
 import {
     Page,
     Text,
     View, 
     Document,
     StyleSheet, 
-    Font
+    Font,
+    Svg,
+    Path,
+    Image
 } from "@react-pdf/renderer";
+import { Phone } from "lucide-react";
 
 Font.register({
     family: 'Inter',
-    src: '/src/assets/fonts/Inter-VariableFont_opsz,wght.ttf'
+    src: '/src/assets/fonts/Montserrat-Medium.ttf'
 })
 
 const styles = StyleSheet.create({
@@ -41,7 +48,12 @@ const styles = StyleSheet.create({
     },
     contentHeader: {
         fontSize: 15,
-        fontWeight: '1000',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+    },
+    name: {
+        fontSize: 25,
+        fontWeight: 'bold',
         textTransform: 'uppercase',
     },
     contentSubHeading: {
@@ -97,14 +109,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(138, 212, 255)',
         padding: 12,
     },
+    info: {
+        display: 'flex',
+        flexDirection: 'row',     
+        gap: 3,
+        alignItems: 'center'
+    },
     p: {
         fontSize: 14,
+    },
+    images: {
+        height: 30,
+        width: 30
     }
     
 })
 
 
-const ResumePDF = ({formData}) =>{
+const ResumePDF = ({formData ,pickTemplate}) =>{
     const experienceLength = Object.keys(formData.experience).length !== 0
     const experience2Length = Object.keys(formData.experience2).length !== 0
     const experience3Length = Object.keys(formData.experience3).length !== 0
@@ -142,26 +164,31 @@ const ResumePDF = ({formData}) =>{
     return(
         <Document>
         <Page size={'A4'} style={styles.page}>
-            <View style={styles.sideBar}></View>
+            <View style={{backgroundColor: pickTemplate?.style.conColor, width: '5%', height: '100%' }}></View>
             <View style={styles.mainContent}>
                 <View style={styles.contentHeading}>
-                    <Text style={styles.contentHeader}>
+                    <Text style={styles.name}>
                         {FirstName + LastName}
                     </Text>
-                    <Text style={styles.contentSubHeading}>
-                        {formData.experience.title1 ? formData.experience.title1 : ''}
+                    <Text style={{
+                        fontSize: 18,
+                        textTransform: 'uppercase',
+                        color: pickTemplate?.style.conColor
+                        }}>
+                            {formData.experience.title1 ? formData.experience.title1 : ''}
                     </Text>
                 </View>
                 <View style={styles.content}>
                     <View style={styles.columnLeft}>
+                        {formData.summary.professionalSummary &&
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Professional Summary</Text>
                             <Text>{
                                    formData.summary.professionalSummary ? formData.summary.professionalSummary : ''
                                 }
                             </Text>
-                        </View>
-                        <View style={styles.section}>
+                        </View>}
+                        {experienceLength && <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Work history</Text>
                             <View style={styles.subSection}>
                                 <Text style={styles.subHeading}>
@@ -182,7 +209,7 @@ const ResumePDF = ({formData}) =>{
                                 </View>
 
                             </View>
-                        </View>
+                        </View>}
                         {
                             experience2Length ? 
                             <View style={styles.subSection}>
@@ -231,19 +258,53 @@ const ResumePDF = ({formData}) =>{
                         
                     </View>
                     <View style={styles.columnRight}>
-                        <View style={styles.contact}>
+                        {formData.personalDetails.phone || formData.personalDetails.email
+                            || formData.personalDetails.email ?
+                        <View style={{ 
+                                backgroundColor: pickTemplate?.style.conColor, 
+                                display: 'flex',flexDirection: 'column', gap: 5,
+                                padding: 12
+                            }}>
                             <Text style={styles.sectionTitle}>Contact</Text>
                             <View style={styles.subSection}>
-                                <Text>
-                                    <img src="/src/assets/images/phone-solid.svg" alt="" />
-                                    {formData.personalDetails.phone ? formData.personalDetails.phone : ''}
-                                </Text>
-                                <Text>{formData.personalDetails.email ? formData.personalDetails.email : ''}</Text>
-                                <Text>{formData.personalDetails.address ? formData.personalDetails.address : ''}</Text>
+                                
+                                { formData.personalDetails.phone &&
+                                <View style={styles.info}>
+                                    
+                                    {/* <Image style={styles.images} src={phone} />
+                                    <Svg xmlns="http://www.w3.org/2000/svg" fill="blue" color="red" style={{fill: 'green', height: 12, width: 12}} 
+                                    viewBox="0 0 512 512"><Path 
+                                    d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 51
+                                    2 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11
+                                    .6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                    </Svg> */}
+                                    <Text>{formData.personalDetails.phone ? formData.personalDetails.phone : ''}</Text>
+                                </View>}
+                                { formData.personalDetails.address &&
+                                <View style={styles.info}>
+                                    {/* <Svg xmlns="http://www.w3.org/2000/svg" fill="blue" color="red" style={{fill: 'green', height: 12, width: 12}} 
+                                    viewBox="0 0 512 512"><Path 
+                                    d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 51
+                                    2 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11
+                                    .6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                    </Svg> */}
+                                    <Text>{formData.personalDetails.address ? formData.personalDetails.address : ''}</Text>
+                                </View>}
+                                { formData.personalDetails.email &&
+                                <View style={styles.info}>
+                                    {/* <Svg xmlns="http://www.w3.org/2000/svg" fill="blue" color="red" style={{fill: 'green', height: 12, width: 12}} 
+                                    viewBox="0 0 512 512"><Path 
+                                    d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 51
+                                    2 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11
+                                    .6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                    </Svg> */}
+                                    <Text>{formData.personalDetails.email ? formData.personalDetails.email : ''}</Text>
+                                </View>}
                             </View>
-                        </View>
-                        <View style={styles.section}>
-                            <Text style={styles.sectionTitle}>Skills</Text>
+                        </View> : ''}
+                        {skillsLength && <View style={styles.section}>
+                            <Text style={styles.sectionTitle}>Skills</Text>                                <Text>{formData.personalDetails.email ? formData.personalDetails.email : ''}</Text>
+
                             <View style={styles.subSection}>
                                 {
                                     skillsLength ?
@@ -253,8 +314,8 @@ const ResumePDF = ({formData}) =>{
 
                                     : ''                                               
                                 }
-                            </View>
-                        </View>
+                            </View> 
+                        </View>}
                         {
                             educationLength ? 
                             <View style={styles.section}>

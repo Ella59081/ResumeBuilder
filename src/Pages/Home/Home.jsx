@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import './home.css'
 import '../../responsive.css'
+import Header from '../../components/Header/header.jsx'
+
 function Home(){
     return(
         <>
+        <Header/>
         <div className="con">
             <div className="about">
                 <div className="info">

@@ -9,13 +9,16 @@
     font-size: 35px;
 }
 .over{
-    width: 40%;
+    width: 48%;
 }
 .over p{
-    font-size: 14px;
+    font-size: 16px;
 }
 .over h6{
-    font-size: 15px;
+    font-size: 16px;
+}
+.over .yName{
+    font-size: 25px;
 }
 .over .left{
     gap: 25px;
@@ -24,5 +27,9 @@
     gap: 25px;
 }
 .over .main-in{
-    padding: 30px;
+    padding: 30px 30px 80px;
+    /* min-height: 100vh; */
+}
+.over .summary{
+    padding-top: 15px;
 }
