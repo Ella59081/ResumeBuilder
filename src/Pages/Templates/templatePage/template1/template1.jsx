@@ -1,4 +1,6 @@
+
 import './template1.css'
+import '../../../../responsive.css'
 import { useContext, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { FormContext } from '../../../../contexts/FormContext'
@@ -8,7 +10,7 @@ import { Check } from 'lucide-react'
 import { Phone } from 'lucide-react'
 import { Mail } from 'lucide-react'
 import { MapPinIcon } from 'lucide-react'
-import { File } from 'lucide-react'
+import { XIcon } from 'lucide-react'
 import { useTemplate } from '../../../../contexts/provideTemplate'
 
 
@@ -17,7 +19,6 @@ function Template1() {
 
     const {formData} = useContext(FormContext);
     const {pickTemplate, noTemplate} = useTemplate()
-    console.log(noTemplate);
 
     const {steps, completed} = useSteps();
 
@@ -32,11 +33,10 @@ function Template1() {
     }
 
     const [closeDefault, setCloseDefault] = useState(false)
-    // setTimeout(() => {  
-    //     setCloseDefault(true)
-    // }, 5000)
+    setTimeout(() => {  
+        setCloseDefault(true)
+    }, 6000)
 
-    // console.log(typeof(completed))
     return(
         <>
           <div className='con-temp'>
@@ -64,7 +64,8 @@ function Template1() {
                         {
                      noTemplate == true && closeDefault == false &&
                      <div className='default'>
-                            Here we've given you a temporary template
+                            <div className='quote'>Here, we've given you a temporary template</div>
+                            <div className='quote-t'></div>
                       </div>
                     }
                         <div className="temp-des">
@@ -162,11 +163,11 @@ function Template1() {
                                                 <Phone size={10} style={{transform: 'rotateY(180deg)'}}/>
                                                 {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                             </p>
-                                            <p>
+                                            <p className='non'>
                                                 <Mail size={10} style={{minWidth:'10px'}}/>
                                                 {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                             </p>
-                                            <p>
+                                            <p className='non'>
                                                 <MapPinIcon size={10}/>
                                                 {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                             </p>
@@ -235,9 +236,7 @@ function Template1() {
                     isClicked === true && 
                     <div className='overview'>
                         <div className='removeOv'>
-                            <button className='exit' onClick={closeOverview}>
-                              <img src="/src/assets/images/xmark-solid.svg" alt="" />
-                            </button>
+                            <XIcon onClick={closeOverview} size={20}/>
                         </div>
                         <Overview/>
                     </div> 

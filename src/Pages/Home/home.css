@@ -1,20 +1,16 @@
-.con{
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-}
 .about{
     width: 100%;
     display: flex;
     align-items: center;
     padding: 50px 250px 0px;
     font-family: sans-serif;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 .info{
     display: flex;
     flex-direction: column;
     width: 60%;
+    font-family: inter;
 }
 .info h1{
     font-size: 54px;
@@ -46,7 +42,6 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .pic{
     width: 40%;
@@ -73,7 +68,6 @@
     border-radius: 100%;
     background-color: rgba(128, 128, 128, 0.175);
     filter: blur(10px);
-    /* background-image: linear-gradient(to right, rgba(131, 131, 216, 0.208), rgba(146, 146, 239, 0.17)); */
 
 }
 
@@ -91,7 +85,6 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .see-temp{

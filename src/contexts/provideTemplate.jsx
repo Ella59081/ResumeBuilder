@@ -16,6 +16,18 @@ export const TemplateProvider = ({children}) =>{
         {
             name: 'template3',
             style: styles.template3
+        },
+        {
+            name: 'template4',
+            style: styles.template4
+        },
+        {
+            name: 'template5',
+            style: styles.template5
+        },
+        {
+            name: 'template6',
+            style: styles.template6
         }
     ]
 

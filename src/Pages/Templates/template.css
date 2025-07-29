@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 100px;
+    /* padding: 100px; */
     background-color: whitesmoke;
 }
 .header{
@@ -15,16 +15,16 @@
     align-items: center;
 }
 .header h1{
-    font-size: 40px;
+    /* font-size: 40px; */
     font-weight: 900;
 }
 .header a{
     color: black;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 .template-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, auto); */
     gap: 30px;
     row-gap: 60px;
 }
@@ -38,9 +38,10 @@
     
 }
 .template img{
-    height: 550px;
+    max-height: 550px;
     border: 1px solid black;
     border-radius: 10px;
+    width: auto;
 }
 
 .template-grid img:hover{

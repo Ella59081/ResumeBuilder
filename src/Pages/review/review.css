@@ -55,6 +55,7 @@
     align-items: center;
     flex-direction: column;
     gap: 5px;
+    position: relative;
 }
 .revheader-in:hover{
     background-color: rgba(245, 245, 245, 0.271);
@@ -66,6 +67,7 @@
     display: flex;
     gap: 30px;
     padding-top: 15px;
+    position: relative;
 }
 .revleft{
     display: flex;
@@ -83,15 +85,17 @@
 .revcontact{
     background-color: rgb(138, 212, 255);
     padding: 10px;
+    position: relative;
 }
-.revcontact:hover{
-    background-color: rgba(245, 245, 245, 0.271);
-}
+
 .revcontact:hover .edit{
     visibility: visible;
 }
+.revcontact:hover{
+    background-color: rgba(245, 245, 245, 0.126);
+}
 .revwork:hover{
-    background-color: rgba(245, 245, 245, 0.271);
+    background-color: rgba(245, 245, 245, 0.126);
 }
 .revwork:hover .edit{
     visibility: visible;
@@ -99,11 +103,17 @@
 .revwork p{
     margin-top: 4px;
 }
+.revwork{
+    position: relative;
+}
+.revtitle2{
+    position: relative;
+}
 .revtitle2 p{
     margin-top: 4px;
 }
 .revtitle2:hover{
-    background-color: rgba(245, 245, 245, 0.271); 
+    background-color: rgba(245, 245, 245, 0.126); 
 }
 .revtitle2:hover .edit{
     visibility: visible;
@@ -124,10 +134,13 @@
     margin-top: 3px;
 }
 .revskills:hover{
-    background-color: rgba(245, 245, 245, 0.271); 
+    background-color: rgba(245, 245, 245, 0.126); 
 }
 .revskills:hover .edit{
     visibility: visible;
+}
+.revskills{
+    position: relative;
 }
 .reveducation p{
     margin-top: 3px;
@@ -136,43 +149,50 @@
     visibility: visible;
 }
 .reveducation:hover{
-    background-color: rgba(245, 245, 245, 0.271); 
+    background-color: rgba(245, 245, 245, 0.126); 
+}
+.reveducation{
+    position: relative;
 }
 .rcertifications p{
     margin-top: 3px;
 }
 .rcertifications:hover{
-    background-color: rgba(245, 245, 245, 0.271); 
+    background-color: rgba(245, 245, 245, 0.126); 
 }
 .rcertifications:hover .edit{
     visibility: visible;
 }
+.rcertifications{
+    position: relative;
+}
 .revprof{
     position: relative;
     height: auto;
+    position: relative;
     
 }
 .revprof:hover{
-    background-color: rgba(245, 245, 245, 0.271); 
+    background-color: rgba(245, 245, 245, 0.126); 
 }
 .revprof:hover .edit{
     visibility: visible;
 }
 .edit{
     position: absolute;
-    margin-top: 5px;
-    margin-left: 270px;
+    /* margin-top: 5px;
+    margin-left: 270px; */
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
+    top: 3px;
+    right: 3px;
 }
-.closer{
+/* .closer{
     margin-left: 170px;
-}
-.edit img{
-    height: 15px;
-}
+} */
+
 .preview{
     padding: 30px;
     padding-top: 0px;
@@ -187,17 +207,21 @@
     width: 100%;
 }
 .download{
+    width: max-content;
+    background: inherit;
+    border: none;
+}
+.download .downLink{
     padding: 10px 20px;
     width: max-content;
-    border-radius: 10px;
-    color: black;
-    text-decoration: none;
-    border: 1px solid black;
-    background-color: inherit;
-    font-size: 16px;
-    background-color: black;
     color: white;
     text-decoration: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: black;
+    display: flex;
+    gap: 5px;
 }
 .temp-rev{
     border: 1px solid white;

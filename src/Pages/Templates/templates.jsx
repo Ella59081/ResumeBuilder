@@ -1,6 +1,8 @@
 import './template.css'
+import '../../responsive.css'
 import { Link } from 'react-router-dom'
 import { useTemplate } from '../../contexts/provideTemplate'
+
 function Templates(){
 
     const {templates, setPickTemplate, setNoTemplate} = useTemplate()

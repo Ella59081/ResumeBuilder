@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 import './home.css'
 import '../../responsive.css'
 import Header from '../../components/Header/header.jsx'
+import { useTemplate } from '../../contexts/provideTemplate'
 
 function Home(){
+
+    const {templates, setPickTemplate, setNoTemplate} = useTemplate()
+    
     return(
         <>
         <Header/>
@@ -23,7 +27,19 @@ function Home(){
             <div className="see-temp">
                 <h1>Explore our excelent templates</h1>
                 <div className="temp-grid">
-                    <div>
+                    {
+                        templates.map((template, index) =>(
+                            <div key={index}>
+                                <img src={template.style.image} alt="" />
+                                <Link onClick={ ()=> {
+                                    setPickTemplate(template)
+                                    setNoTemplate(false)
+                                }} to="/resumeData"className='use'>Use this template</Link>
+                            </div>
+                        )) 
+                        
+                    }
+                    {/* <div>
                         <img src="/src/assets/images/template(1).svg" alt="" />
                         <Link to="templates"className='use'>Use this template</Link>
                     </div>
@@ -32,9 +48,9 @@ function Home(){
                         <Link to="templates"className='use'>Use this template</Link>
                     </div>
                     <div>
-                        <img src="/src/assets/images/resume-Template (1).avif" alt="" />
+                        <img src="/src/assets/images/template(4).svg" alt="" />
                         <Link to="templates"className='use'>Use this template</Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="how-to">

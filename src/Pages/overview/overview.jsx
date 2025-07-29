@@ -112,11 +112,11 @@ function Overview(){
                                                             <Phone size={16} style={{transform: 'rotateY(180deg)'}}/>
                                                             {formData.personalDetails.phone ? formData.personalDetails.phone : '080 567 543 12'}
                                                         </p>
-                                                        <p>
+                                                        <p className='top'>
                                                             <Mail size={16} style={{minWidth:'10px'}}/>
                                                             {formData.personalDetails.email ? formData.personalDetails.email : 'example@gmail.com'}
                                                         </p>
-                                                        <p>
+                                                        <p className='top'>
                                                             <MapPinIcon size={16}/>
                                                             {formData.personalDetails.address ? formData.personalDetails.address : 'maddison off close'}
                                                         </p>

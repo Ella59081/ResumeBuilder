@@ -167,14 +167,34 @@ button{
     
 }
 .default{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -20px;
+    right: 0px;
+}
+.quote{
     width: 200px;
-    padding: 30px;
+    padding: 20px;
     background-color: whitesmoke;
     border-radius: 10px;
-    position: relative;
     z-index: 20;
-    top: -20px;
-    right: 30px;
+    margin-top: 50px;
+    font-size: 14px;
+    font-family: inter;
+    font-weight: 300;
+}
+.quote-t{
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    transform: rotate(135deg);
+    z-index: 15;
+    position: relative;
+    bottom: 20px;
+    border-radius: 3px;
+    background-color: whitesmoke;
 }
 .photo{
     width: 33%;
@@ -184,10 +204,10 @@ button{
     display: flex;
     background-color: white;
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid black;
     position: relative;
-    bottom: 20px;
+    /* bottom: 20px; */
 
 }
 .temp-des p{
@@ -203,8 +223,8 @@ button{
 .side-in{
     padding: 10px;
     background-color: rgb(138, 212, 255);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .main-in{
     display: flex;
@@ -250,8 +270,8 @@ button{
     gap: 5px;
     align-items: center;
 }
-.contact p img{
-    height: 8px;
+.contact .non{
+    padding-top: 3px;
 }
 .skills p{
     margin-top: 2px;
@@ -358,10 +378,8 @@ textarea{
     flex-direction: column;
     position: absolute;
     z-index: 20px;
-    background: transparent;
-    background-color: rgba(0, 0, 0, 0.208);    
-    backdrop-filter: blur(4px);
-    /* height: 100vh; */
+    background-color: rgba(0, 0, 0, 0.208);
+    backdrop-filter: blur(10px);
     padding: 0px 0px 50px 0px;
     width: 100%;
 }
@@ -371,16 +389,12 @@ textarea{
     display: flex;
     justify-content: end;
 }
-.exit{
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 100%;
-    height: 25px;
-    width: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.exit img{
-    height: 15px;
-}
+/* @media (max-width: 1400px) {
+    
+    .detForm{
+        width: 50%;
+    }
+    .photo{
+        width: 40%;
+    }
+} */
