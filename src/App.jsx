@@ -17,7 +17,7 @@ import { FormContext, FormProvider } from './contexts/FormContext'
 import Experience2 from './Pages/Templates/templatePage/template1/experience2'
 import Experience3 from './Pages/Templates/templatePage/template1/experience3'
 import { StepsProvider } from './contexts/completeSteps'
-// import { FormContext } from './contexts/FormContext'
+import './responsive.css'
 
 
 

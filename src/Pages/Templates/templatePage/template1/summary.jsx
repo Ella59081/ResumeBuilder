@@ -67,9 +67,7 @@ function Summary(){
                         <div className="form">
                             <textarea name="professionalSummary" id="" onChange={handleChange}></textarea>
                             {formErrors.summary && <p style={{marginTop: '-15px', fontSize: '13px', color: 'red'}} className='errorMsg'>{formErrors.summary}!</p>}
-                            <div className='buttons-continue'>
-                                <button type='submit' className='continue'>Continue</button>
-                            </div>
+                            <button style={{marginTop: "50px"}} type='submit' className='continue'>Continue</button>
                             
                         </div>
             </form>

@@ -85,8 +85,9 @@ function PersonalDetails(){
                             <div className="add-text">
                                 <p>Add a photo to your resume</p>
                                 <label htmlFor="photo" className='photo-add'>
-                                    <input type="file" name="photo" disabled id="photo" hidden/>
+                                    <input type="file" name="photo" hidden disabled id="photo"/>
                                     <span style={{color: "grey"}}>Add photo</span>
+                                    <div>Rooms</div>
                                 </label>
                             </div>
                         </div>

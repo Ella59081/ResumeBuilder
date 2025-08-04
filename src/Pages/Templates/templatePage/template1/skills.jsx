@@ -137,9 +137,7 @@ function Skills(){
                               className="add-skills" disabled = {skillNo == 10}>
                                 <Plus size={16}/> Add skill
                             </button>
-                            <div className='buttons-continue'>
-                                <button type='submit' className='continue'>Continue</button>
-                            </div>
+                            <button style={{marginTop: "50px"}} type='submit' className='continue'>Continue</button>
                         </div>
             </form>
         </>

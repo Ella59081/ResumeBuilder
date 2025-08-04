@@ -39,7 +39,7 @@ function Template1() {
 
     return(
         <>
-          <div className='con-temp'>
+            <div className='con-temp'>
                 <div className="side">
                     <img style={{marginBottom: "30px"}} src="/src/assets/images/file-solid (2).svg" alt="" />
                     {
@@ -54,6 +54,26 @@ function Template1() {
                         ))
                     }
                 </div>
+                <div className="above">
+                    {
+                        steps.map((step, index) =>(
+                            completed[step] ? 
+                            <div className='step'>
+                                <div className='sect com'>
+                                    <Check size={18}/>
+                                </div>
+                                <span style={completed[step] && { backgroundColor: 'green'}}></span>
+                            </div> : 
+                            <div className='step'>
+                                <div className="sect">
+                                    <p>{index+ 1}</p>
+                                </div>
+                                <span></span>
+                            </div>
+                        ))
+                    }
+                </div>
+                
                 <div className="main-temp">
                     <section className="detForm">
                         <Outlet />
@@ -241,7 +261,7 @@ function Template1() {
                         <Overview/>
                     </div> 
                 }              
-          </div>
+            </div>
         </>
     )
 }

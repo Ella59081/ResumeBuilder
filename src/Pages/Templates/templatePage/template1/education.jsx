@@ -194,9 +194,8 @@ function Education(){
                                 </div>
                                 
                             </div>
-                            <div className='buttons-continue'>
-                                <button type='submit' className='continue'>Continue</button>
-                            </div>
+                            <button style={{marginTop: "50px"}} type='submit' className='continue'>Continue</button>
+                            
                         </div>
             </form>
         </>
