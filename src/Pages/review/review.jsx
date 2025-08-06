@@ -150,21 +150,21 @@ function Review(){
                                             {
                                                 formData.personalDetails.phone ? 
                                                 <p className='top'>
-                                                  <Phone size={18} style={{transform: 'rotateY(180deg)'}}/>
+                                                  <Phone className='c-info' size={18} style={{transform: 'rotateY(180deg)'}}/>
                                                   <p>{formData.personalDetails.phone}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.email ? 
                                                 <p className='top'>
-                                                  <Mail size={18} style={{minWidth:'18px'}}/>
+                                                  <Mail className='c-info' size={18} style={{minWidth:'18px'}}/>
                                                   <p>{formData.personalDetails.email}</p>
                                                 </p> : <p></p>
                                             }
                                             {
                                                 formData.personalDetails.address ? 
                                                 <p className='top'>
-                                                  <MapPinIcon size={18}/>
+                                                  <MapPinIcon className='c-info' size={18}/>
                                                   <p>{formData.personalDetails.address}</p>
                                                 </p> : 
                                                 <p></p>
@@ -245,7 +245,6 @@ function Review(){
                             </div>
                         </div>
                 </div>
-                
                 <div className="preview">
                     <div className="rev-buttons">
                         

@@ -49,12 +49,13 @@
     .template img{
         height: 450px;
     }
-     /* .detForm{
-        max-width: 50%;
+    .rev-con{
+        padding: 80px 100px 50px !important;
     }
-    .photo{
-        max-width: 30%;
-    } */
+    .rev-con .revphoto{
+        width: 59%;
+    }
+    
 }
 @media (max-width: 1300px) {
     html{
@@ -96,6 +97,12 @@
     .main-temp .photo{
         width: 40% ;
     }
+    .rev-con {
+        padding: 80px 80px 50px !important;
+    }
+    .rev-con .temps-grid img{
+        height: 200px;
+    }
 }
 @media (max-width: 1200px) {
     html{
@@ -136,6 +143,18 @@
     }
     .detForm .first-part .header h1{
         padding-right: 0px;
+    }
+    .rev-con{
+        justify-content: space-between !important;
+    }
+    .rev-con .temps-grid{
+        grid-template-columns: 1fr;
+    }
+    .rev-con .revphoto{
+        width: 65%;
+    }
+    .rev-con .temps-grid img{
+        height: 250px;
     }
 }
 @media (max-width: 1100px) {
@@ -198,7 +217,13 @@
         width: 47%;
     }
     .main-temp .photo{
-        width: 45% ;
+        width: 45%;
+    }
+    .rev-con .revphoto{
+        width: 70%;
+    }
+    .rev-con .temps-grid img{
+        height: 200px;
     }
 }
 @media(max-width: 1050px){
@@ -213,6 +238,9 @@
     }
     .con-temp .main-temp{
         padding: 50px;
+    }
+    .rev-con {
+        gap: 0px !important;
     }
 
 }
@@ -285,6 +313,13 @@
     .main-temp .photo{
         display: none;
     }
+    body .rev-con{
+        flex-direction: column;
+        gap: 50px !important;
+    }
+    .rev-con .revphoto{
+        width: 85%;
+    }
 }
 @media(max-width: 970px){
     .temp-grid img{
@@ -320,6 +355,9 @@
     .template-grid{
         grid-template-columns: repeat(2, 1fr);
     }
+    .rev-con .revphoto{
+        width: 90%;
+    }
 }
 @media(max-width: 890px){
     
@@ -336,6 +374,9 @@
 @media(max-width: 830px){
     .inner-div div{
         width: 50%;
+    }
+    .rev-con .revphoto{
+        width: 95%;
     }
 }
 @media(max-width: 820px){
@@ -380,6 +421,9 @@
     .template img{
         height: 400px;
     }
+    .rev-con .revphoto{
+        width: 100%;
+    }
 }
 @media(max-width: 760px){
     .pic{
@@ -390,6 +434,23 @@
     }
     .template img{
         height: 380px;
+    }
+    .rev-con .revtemp-des p{
+        font-size: 10px;
+    } 
+    .rev-con .revtemp-des .yName{
+        font-size: 20px;
+    }
+    .rev-con .revmain-in h6{
+        font-size: 12px;
+    }
+    .rev-con .revphoto{
+        width: 100%;
+        min-height: 90vh;
+        /* height: 200px; */
+    }
+    .rev-con .revtemp-des{
+        min-height: 90vh;
     }
 }
 @media(max-width: 720px){
@@ -443,6 +504,9 @@
         display: flex;
         padding: 50px 50px 0px;
     }
+    .rev-con{
+        padding: 50px !important;
+    }
     
 }
 @media(max-width: 650px){
@@ -462,6 +526,12 @@
     }
     .con-temp .above{
         padding: 50px 120px 0px;
+    }
+    .rev-con .revmain-in{
+        padding: 20px;
+    }
+    .rev-con .revside-in{
+        padding: 13px;
     }
 }
 @media(max-width: 620px){
@@ -539,6 +609,9 @@
     .detForm .first-part .add-text span{
         font-size: 16px;
     }
+    .rev-con{
+        padding: 50px 30px !important;
+    }
 }
 @media(max-width: 580px){
     .main{
@@ -598,10 +671,25 @@
         flex-direction: column;
 
     }
-    
-    /* .main{
-        padding: 100px 20px;
-    } */
+    .rev-con .revtemp-des p{
+        font-size: 9px;
+    } 
+    .rev-con .revtemp-des .yName{
+        font-size: 15px;
+    }
+    .rev-con .revmain-in h6{
+        font-size: 10px;
+    }
+    .rev-con .revphoto{
+        width: 100%;
+        min-height: 80vh;
+    }
+    .rev-con .revtemp-des{
+        min-height: 80vh;
+    }
+    .rev-con .revtemp-des .c-info{
+        height: 12px;
+    }
 }
 @media(max-width: 500px){
     /* .temp-grid{
@@ -819,13 +907,6 @@
         font-size: 15px;
         color: grey;
         
-    }
-    .detForm .first-part .add-text .photo-add div::before{
-        content: '';
-        margin-top: 20px;
-        height: 5px;
-        width: 100%;
-        background-color: green;
     }
 }
 @media(max-width: 330px){

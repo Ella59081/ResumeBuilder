@@ -87,7 +87,6 @@ function PersonalDetails(){
                                 <label htmlFor="photo" className='photo-add'>
                                     <input type="file" name="photo" hidden disabled id="photo"/>
                                     <span style={{color: "grey"}}>Add photo</span>
-                                    <div>Rooms</div>
                                 </label>
                             </div>
                         </div>
