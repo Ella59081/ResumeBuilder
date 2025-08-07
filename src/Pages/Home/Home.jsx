@@ -3,6 +3,8 @@ import './home.css'
 import '../../responsive.css'
 import Header from '../../components/Header/header.jsx'
 import { useTemplate } from '../../contexts/provideTemplate'
+import bgMen from '../../assets/images/bg-with-men.png'
+import rTemp from '../../assets/images/resume-Template (1).avif'
 
 function Home(){
 
@@ -19,9 +21,9 @@ function Home(){
                     <Link to="/templates"><button>Choose a template</button></Link>
                 </div>
                 <div className="pic">
-                    <img className='profile' src="/src/assets/images/bg-with-men.png" alt="" />
+                    <img className='profile' src={bgMen} alt="" />
                     <div className="shadow"></div>
-                    <img className='resume' src="/src/assets/images/resume-Template (1).avif" alt=""/>
+                    <img className='resume' src={rTemp} alt=""/>
                 </div>
             </div>
             <div className="see-temp">
