@@ -320,6 +320,17 @@
     .rev-con .revphoto{
         width: 85%;
     }
+    .rev-con .temps-grid{
+        width: 100%;
+        grid-template-columns: repeat(3, auto);
+    }
+    .rev-con .temps-grid img{
+        height: 300px;
+    }
+    .rev-con .preview{
+        padding: 0px;
+        width: 100%;
+    }
 }
 @media(max-width: 970px){
     .temp-grid img{
@@ -357,6 +368,9 @@
     }
     .rev-con .revphoto{
         width: 90%;
+    }
+    .rev-con .temps-grid img{
+        height: 260px;
     }
 }
 @media(max-width: 890px){
@@ -424,6 +438,13 @@
     .rev-con .revphoto{
         width: 100%;
     }
+    .rev-con .temps-grid{
+        width: 100%;
+        grid-template-columns: repeat(2, auto);
+    }
+    .rev-con .temps-grid img{
+        height: 350px;
+    }
 }
 @media(max-width: 760px){
     .pic{
@@ -455,6 +476,10 @@
     .rev-con .revtemp-des{
         min-height: 90vh;
     }
+    .rev-con .temps-grid img{
+        height: 310px;
+    }
+    
 }
 @media(max-width: 720px){
     .pic{
@@ -536,6 +561,9 @@
     .rev-con .revside-in{
         padding: 13px;
     }
+    .rev-con .temps-grid img{
+        height: 290px;
+    }
 }
 @media(max-width: 620px){
     .header h1{
@@ -615,6 +643,12 @@
     .rev-con{
         padding: 50px 30px !important;
     }
+    .rev-con .revmain-in{
+        gap: 15px;
+    }
+    .rev-con .temps-grid img{
+        height: 280px;
+    }
 }
 @media(max-width: 580px){
     .main{
@@ -692,6 +726,12 @@
     .rev-con .revtemp-des .c-info{
         height: 12px;
     }
+    /* .rev-con .temps-grid{
+        grid-template-columns: repeat(1, auto)
+    } */
+    .rev-con .temps-grid img{
+        height: 250px;
+    }
 }
 @media(max-width: 500px){
     .see-temp{
@@ -742,6 +782,9 @@
     .rev-con .revtemp-des .c-info{
         height: 10px;
     }
+    .rev-con .temps-grid img{
+        height: 230px;
+    }
 }
 @media(max-width: 470px){
     .about{
@@ -774,7 +817,12 @@
     .template img{
         height: 450px;
     }
-    
+    .rev-con .temps-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .rev-con .temps-grid img{
+        height: 450px;
+    }
 }
 @media(max-width: 450px){
     .pic .resume{
@@ -841,7 +889,9 @@
     .rev-con .revtemp-des .c-info{
         height: 9px;
     }
-    
+    .rev-con .temps-grid img{
+        height: 420px;
+    }
 }
 @media(max-width: 400px){
     .info h1{
@@ -890,7 +940,7 @@
         font-size: 20px;
     }
     .rev-con .revtemp-des p{
-        font-size: 4px;
+        font-size: 6px;
     } 
     .rev-con .revtemp-des .yName{
         font-size: 9px;  
@@ -911,7 +961,15 @@
     .rev-con{
         padding: 50px 20px !important;
     }
-    
+    .rev-con .revtemp-des .revcontact{
+        padding: 7px;
+    }
+    .rev-con .revtemp-des .revside-in{
+        padding: 8px;
+    }
+    .rev-con .temps-grid img{
+        height: 400px;
+    }
 }
 @media(max-width: 380px){
     .info h1{
@@ -922,7 +980,9 @@
     .template img{
         height: 330px;
     }
-    
+    .rev-con .temps-grid img{
+        height: 360px;
+    }
 }
 @media(max-width: 363px){
     .info h1{
@@ -967,6 +1027,12 @@
         color: grey;
         
     }
+    .rev-con{
+        padding: 50px 10px !important;
+    }
+    .rev-con .temps-grid img{
+        height: 370px;
+    }
 }
 @media(max-width: 330px){
     
@@ -985,6 +1051,9 @@
     .template img{
         height: 350px;
     }
+    .rev-con .temps-grid img{
+        height: 310px;
+    }
 }
 @media(max-width: 310px){
     .temp-grid {
@@ -998,5 +1067,8 @@
         grid-template-columns: auto auto auto;
         align-items: center;
         gap: 20px;
+    }
+    .rev-con .temps-grid img{
+        height: 290px;
     }
 }
