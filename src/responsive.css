@@ -669,13 +669,12 @@
     .detForm .first-part .form .buttons-continue{
         align-items: center;
         flex-direction: column;
-
     }
     .rev-con .revtemp-des p{
         font-size: 9px;
     } 
     .rev-con .revtemp-des .yName{
-        font-size: 15px;
+        font-size: 15px;  
     }
     .rev-con .revmain-in h6{
         font-size: 10px;
@@ -692,9 +691,6 @@
     }
 }
 @media(max-width: 500px){
-    /* .temp-grid{
-        padding: 0px 10px 0px;
-    } */
     .see-temp{
         padding: 150px 10px 70px;
     }
@@ -723,6 +719,25 @@
     }
     .detForm .first-part .inimg{
         padding: 45px;
+    }
+    .rev-con .revtemp-des p{
+        font-size: 7px;
+    } 
+    .rev-con .revtemp-des .yName{
+        font-size: 11px;  
+    }
+    .rev-con .revmain-in h6{
+        font-size: 8px;
+    }
+    .rev-con .revphoto{
+        width: 100%;
+        min-height: 80vh;
+    }
+    .rev-con .revtemp-des{
+        min-height: 80vh;
+    }
+    .rev-con .revtemp-des .c-info{
+        height: 10px;
     }
 }
 @media(max-width: 470px){
