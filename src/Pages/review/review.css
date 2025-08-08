@@ -4,7 +4,7 @@
 }
 @font-face{
     font-family: inter;
-    src: url('../../../src/assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
+    src: url('../../assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
 }
 .rev-con{
     width: 100%;
