@@ -12,6 +12,7 @@ import { Mail } from 'lucide-react'
 import { MapPinIcon } from 'lucide-react'
 import { XIcon } from 'lucide-react'
 import { useTemplate } from '../../../../contexts/provideTemplate'
+import file from '../../../../assets/images/file-solid (2).svg'
 
 
 function Template1() {
@@ -41,7 +42,7 @@ function Template1() {
         <>
             <div className='con-temp'>
                 <div className="side">
-                    <img style={{marginBottom: "30px"}} src="/src/assets/images/file-solid (2).svg" alt="" />
+                    <img style={{marginBottom: "30px"}} src={file} alt="" />
                     {
                         steps.map((step, index) =>(
                             completed[step] ? 

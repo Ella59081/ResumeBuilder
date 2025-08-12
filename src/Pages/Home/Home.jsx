@@ -5,6 +5,11 @@ import Header from '../../components/Header/header.jsx'
 import { useTemplate } from '../../contexts/provideTemplate'
 import bgMen from '../../assets/images/bg-with-men.png'
 import rTemp from '../../assets/images/resume-Template (1).avif'
+import choose from '../../assets/images/choose-template-icon.png'
+import design from '../../assets/images/design-formatting-icon.png'
+import custom from '../../assets/images/customize-icon.png'
+import downloadT from '../../assets/images/download-template-icon.png'
+
 
 function Home(){
 
@@ -41,18 +46,6 @@ function Home(){
                         )) 
                         
                     }
-                    {/* <div>
-                        <img src="/src/assets/images/template(1).svg" alt="" />
-                        <Link to="templates"className='use'>Use this template</Link>
-                    </div>
-                    <div>
-                        <img src="/src/assets/images/template(2).svg" alt="" />
-                        <Link to="templates"className='use'>Use this template</Link>
-                    </div>
-                    <div>
-                        <img src="/src/assets/images/template(4).svg" alt="" />
-                        <Link to="templates"className='use'>Use this template</Link>
-                    </div> */}
                 </div>
             </div>
             <div className="how-to">
@@ -62,7 +55,7 @@ function Home(){
                     <div className="cards">
                         <div className="card">
                             {/* <h1>01</h1> */}
-                            <img src="/src/assets/images/choose-template-icon.png" alt="" />
+                            <img src={choose} alt="" />
                             <h2>Select a template</h2>
                             <p>First pick a template. Select a template from 
                                 our variety of beautiful templates
@@ -72,7 +65,7 @@ function Home(){
                         </div>
                         <div className="card">
                             {/* <h1 className='blue'>02</h1> */}
-                            <img src="/src/assets/images/design-formatting-icon.png" alt="" />
+                            <img src={design} alt="" />
                             <h2>Fill in your details</h2>
                             <p>Fill in all necessary details for your resume, Add
                                 your details and ways for employers to reach you
@@ -81,7 +74,7 @@ function Home(){
                             </p>
                         </div>
                         <div className="card">
-                            <img src="/src/assets/images/customize-icon.png" alt="" />
+                            <img src={custom} alt="" />
                             <h2>Review your resume</h2>
                             <p>After entering all the necessary details do a quick 
                                 review of what you've written so far. You can then 
@@ -90,7 +83,7 @@ function Home(){
                             </p>
                         </div>
                         <div className="card">
-                            <img src="/src/assets/images/download-template-icon.png" alt="" />
+                            <img src={downloadT} alt="" />
                             <h2>Dowload your resume</h2>
                             <p>After entering all the necessary details and reviewing 
                                 your work, you can now download your resume either in 
