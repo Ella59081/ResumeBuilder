@@ -3,10 +3,7 @@ import temp2 from '../assets/images/template(2).svg'
 import temp3 from '../assets/images/resume-Template (1).avif'
 import temp4 from '../assets/images/template(3).svg'
 import temp5 from '../assets/images/template(4).svg'
-import temp6 from '../assets/images/template(1).svg'
-
-
-
+import temp6 from '../assets/images/template(5).svg'
 
 
 export const styles = {
@@ -40,7 +37,7 @@ export const styles = {
     template6 : {
         sideColor: 'rgba(53, 74, 169, 1)',
         conColor: 'rgba(174, 185, 238, 1)',
-        image: '/src/assets/images/template(6).svg'
+        image: temp6
         
     }
 }
