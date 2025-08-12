@@ -35,8 +35,8 @@ export const styles = {
         image: temp5  
     },
     template6 : {
-        sideColor: 'rgba(53, 74, 169, 1)',
-        conColor: 'rgba(174, 185, 238, 1)',
+        sideColor: 'rgba(67, 97, 227, 1)',
+        conColor: 'rgba(181, 217, 247, 1)',
         image: temp6
         
     }
